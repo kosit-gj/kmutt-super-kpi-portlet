@@ -1,0 +1,38 @@
+.bgKpi{
+	background:#b6b6b6;
+}
+.aui h3.titleKpi{
+	color:orange;
+	font-weight:bold;
+	text-shadow: 0px 1px 0px #000;
+	padding:10px;
+}
+.aui p {
+    margin: 5px;
+}
+
+.aui h1, .aui h2, .aui h3 {
+    line-height: 25px;
+   
+}
+.aui .portlet-content, .aui .portlet-minimized .portlet-content-container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eaeaea;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 1px 1px 1px;
+}
+.aui .titleGold{
+	background:#5d4771;
+	padding:5px;
+	color:white;
+}
+.aui .subTitleGold{
+	background:#eaeaea;
+	padding:5px;
+	color:orange;
+}
