@@ -15,7 +15,6 @@
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		
 		
-		
 		<footer-portlet-javascript>
 			/js/main.js
 		</footer-portlet-javascript>
@@ -35,10 +34,45 @@
 		
 		
 		
-	
 		
 		<css-class-wrapper>supper-kp-is-portlet</css-class-wrapper>
 	</portlet>
+	<portlet>
+		<portlet-name>test-ajax</portlet-name>
+		<icon>/icon.png</icon>
+		
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/main.js
+		</footer-portlet-javascript>
+		
+		<css-class-wrapper>test-ajax-portlet</css-class-wrapper>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>portlet-kpi1_1</portlet-name>
+		<icon>/icon.png</icon>
+		
+		<header-portlet-css>/css/superKpis1_1.css</header-portlet-css>
+		<footer-portlet-javascript>
+			/js/fusioncharts-suite-xt/js/fusioncharts.js
+			
+		</footer-portlet-javascript>
+		
+		<footer-portlet-javascript>
+			/js/fusioncharts-suite-xt/js/themes/fusioncharts.theme.fint.js
+		</footer-portlet-javascript>
+		
+		<footer-portlet-javascript>
+			/js/cSuperKpis1_1.js 
+			
+		</footer-portlet-javascript>
+		
+		
+		<css-class-wrapper>portlet-kpi1_1-portlet</css-class-wrapper>
+	</portlet>
+	
+	
 	<role-mapper>
 		<role-name>administrator</role-name>
 		<role-link>Administrator</role-link>

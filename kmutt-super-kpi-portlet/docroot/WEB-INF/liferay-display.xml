@@ -5,8 +5,16 @@
 	<category name="category.sample">
 		<portlet id="abc" />
 		<portlet id="my-hello-world"></portlet>
+		<portlet id="test-ajax"></portlet>
 	</category>
+	
 	<category name="Supper KPIs">
 		<portlet id="supper-kp-is"></portlet>
+		<portlet id="test-ajax"></portlet>
+		<portlet id="portlet-kpi1_1"></portlet>
 	</category>
+
+
+
+
 </display>

@@ -1,12 +1,14 @@
-<%@ page import="javax.portlet.PortletURL"%>
-<%@ page contentType="text/html; charset=utf-8" %> 
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %> 
+<%@ page import="javax.portlet.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="com.test.*" %>    
 
 <portlet:defineObjects />
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Test</title>
 	
     <script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
    
@@ -41,15 +43,106 @@
   .aui h1, .aui h2, .aui h3, .aui h4, .aui h5, .aui h6{
   margin:0px;
   }
+  
+  
+  .aui .portlet-content, .aui .portlet-minimized .portlet-content-container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eaeaea;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 1px 1px 1px;
+}
+
   </style>
   
 </head>
 <body>
-<div class='bgKpi'>
 
+<%
+
+SupperKPIs abc = new SupperKPIs();
+//abc.init2();
+//out.print("hello"+abc.init2());
+abc.initTest();
+out.print("get data form database="+abc.getdata1());
+abc.selectByIndex("select * from Book", "2");
+out.print("selectByIndex="+abc.getData());
+String myResourceURL="";
+%>
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+	//alert("hello");
+	/*
+	$.ajax({
+		
+		//url:"testModel",
+		url:"<portlet:resourceURL id='SecondCall'/>",
+		dataType:"get",
+		data:"html",
+		success:function(data){
+			alert(data);
+		}
+	});
+	*/
+});
+
+</script>
+<portlet:resourceURL var="connGetList" id="connGetList"></portlet:resourceURL>
+
+<portlet:resourceURL var='resourceUrl12'>
+	<portlet:param name="param1" value="value1"/>
+</portlet:resourceURL>
+
+<a href="${resourceUrl1}">This is resourceURL</a> 
+<br>
+<a href="#" onclick="callServeResource()">This is resourceURL</a>
+<script type='text/javascript'>
+function callServeResource(){
+	AUI().use('aui-io-request',function(A){
+		A.io.request('<%=resourceUrl12%>',{
+			method:'post',
+			data:{
+				<portlet:namespace />param2:'value2',
+			},
+			on:{
+				success:function(){
+					alert(this.get('responseData'));
+				}
+			}
+		});
+	
+	});
+}
+</script>
+
+
+
+<portlet:resourceURL var="fileDownloadURL" id="fileDownload">
+    <portlet:param name="filename" value="testModel.jsp"/>
+    <portlet:param name="filepath" value="/Model"/>
+</portlet:resourceURL>
+<!-- <a href="${fileDownloadURL}" onClick="window.location ='${fileDownloadURL}';">Reporte »</a> -->
+
+
+
+
+
+<div class='bgKpi'>
 <h3 class='titleKpi'>
 <center>
 <p>
+
 รายการตัวชี้วัด(KMUTT Supporting KPIs)
 </p>
 <p>

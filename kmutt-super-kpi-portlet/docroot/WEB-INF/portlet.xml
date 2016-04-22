@@ -9,6 +9,8 @@
 			<name>view-template</name>
 			<value>/view.jsp</value>
 		</init-param>
+		
+		
 		<expiration-cache>0</expiration-cache>
 		<supports>
 			<mime-type>text/html</mime-type>
@@ -66,7 +68,7 @@
 	</portlet>
 	<portlet>
 		<portlet-name>supper-kp-is</portlet-name>
-		<display-name>Supper Kp Is</display-name>
+		<display-name>Supper KpIs</display-name>
 		<portlet-class>com.test.SupperKPIs</portlet-class>
 		<init-param>
 			<name>view-template</name>
@@ -95,4 +97,68 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<portlet-name>test-ajax</portlet-name>
+		<display-name>Test Ajax</display-name>
+		<portlet-class>com.test.TestAjaxPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/testajax/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Test Ajax</title>
+			<short-title>Test Ajax</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>portlet-kpi1_1</portlet-name>
+		<display-name>Portlet Kpi1 1</display-name>
+		<portlet-class>com.test.portletKpi1_1</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/portletkpi1_1/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Portlet Kpi1 1</title>
+			<short-title>Portlet Kpi1 1</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	
 </portlet-app>
