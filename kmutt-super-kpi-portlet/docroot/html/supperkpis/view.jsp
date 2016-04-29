@@ -10,15 +10,13 @@
 <head>
     <title>Test</title>
 	
-    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
-   
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+
     <!-- Jquery -->
     <!-- 
      <script src="<c:url value="/js/ChartLib_KendoUI/js/jquery-1.11.2.min.js"/>"></script> 
       -->
-    <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
@@ -62,209 +60,203 @@
 </head>
 <body>
 
-<%
-
-SupperKPIs abc = new SupperKPIs();
-//abc.init2();
-//out.print("hello"+abc.init2());
-abc.initTest();
-out.print("get data form database="+abc.getdata1());
-abc.selectByIndex("select * from Book", "2");
-out.print("selectByIndex="+abc.getData());
-String myResourceURL="";
-%>
 
 
-
-
-
-
-<script>
-
-$(document).ready(function(){
-	//alert("hello");
-	/*
-	$.ajax({
+<div class='paramArea'>
+		<div class='paramYearArea'>
+			<div class='yearLabel'>
+				ปีปฎิทิน
+			</div>
+			<div class='yearParam' >
+				<select style='width:100px;' id='yearParam'>
+					<option>2559</option>
+					<option>2558</option>
+					<option>2557</option>
+					<option>2556</option>
+				</select>
+			</div>
+		</div>
+		<div class='paramMonthArea'>
+			 
+			<div class='monthLabel'>
+				เดือน
+			</div>
+			<div class='monthParam' >
+			
+				<select style='width:100px;' id='monthParam'>
+					<option value='1'>มกราคม</option>
+					<option value='2'>กุมภาพันธ์</option>
+					<option value='3'>มีนาคม</option>
+					<option value='4'>เมษายน</option>
+				</select>
+				
+			</div>
+			
+			
+		</div>
 		
-		//url:"testModel",
-		url:"<portlet:resourceURL id='SecondCall'/>",
-		dataType:"get",
-		data:"html",
-		success:function(data){
-			alert(data);
-		}
-	});
-	*/
-});
-
-</script>
-<portlet:resourceURL var="connGetList" id="connGetList"></portlet:resourceURL>
-
-<portlet:resourceURL var='resourceUrl12'>
-	<portlet:param name="param1" value="value1"/>
-</portlet:resourceURL>
-
-<a href="${resourceUrl1}">This is resourceURL</a> 
-<br>
-<a href="#" onclick="callServeResource()">This is resourceURL</a>
-<script type='text/javascript'>
-function callServeResource(){
-	AUI().use('aui-io-request',function(A){
-		A.io.request('<%=resourceUrl12%>',{
-			method:'post',
-			data:{
-				<portlet:namespace />param2:'value2',
-			},
-			on:{
-				success:function(){
-					alert(this.get('responseData'));
-				}
-			}
-		});
-	
-	});
-}
-</script>
-
-
-
-<portlet:resourceURL var="fileDownloadURL" id="fileDownload">
-    <portlet:param name="filename" value="testModel.jsp"/>
-    <portlet:param name="filepath" value="/Model"/>
-</portlet:resourceURL>
-<!-- <a href="${fileDownloadURL}" onClick="window.location ='${fileDownloadURL}';">Reporte »</a> -->
-
-
+		<div class='paramOrgArea'>
+			
+			<div class='OrgLabel'>
+				หน่วยงาน 
+			</div>
+			<div class='OrgParam' >
+			
+				<select style='width:150px;' id='orgParam'>
+					<option value='1'>หน่วยงานที่1</option>
+					<option value='2'>หน่วยงานที่2</option>
+					<option value='3'>หน่วยงานที่3</option>
+					<option value='4'>หน่วยงานที่4</option>
+				</select>
+				
+			</div>
+			
+		</div>
+		
+		<div class='paramSubmitArea'>
+			<button class='btnSubmit' id='btnSubmit'> &nbsp;&nbsp;ตกลง&nbsp;&nbsp;</button>
+		</div>
+		<div class='clearfix'></div>
+</div>
 
 
 
 <div class='bgKpi'>
 <h3 class='titleKpi'>
-<center>
-<p>
+<div class='picturePerson'>
+	<img width='200' src='<%= renderRequest.getContextPath() + "/images/main.png" %>' />
+</div>
+<div class='mainText'>
+	
+	<center>
+	<p>
+	
+	รายการตัวชี้วัด(KMUTT Supporting KPIs)
+	</p>
+	<p>
+	ตามเป้าประสงค์เชิงกลยุทย์ของมหาวิทยาลัย(KMUTT Supper KPIs)
+	</p>
+	</center>
 
-รายการตัวชี้วัด(KMUTT Supporting KPIs)
-</p>
-<p>
-ตามเป้าประสงค์เชิงกลยุทย์ของมหาวิทยาลัย(KMUTT Supper KPIs)
-</p>
-</center>
+</div>
+
 </h3>
 
 <div id="accordion">
-  <h3 class='titleGold'>Goal 1: New Approach to Learing</h3>
+  
+  
+  <h3 class='titleGold'>
+  
+  
+  	<!-- titleGold start -->
+  	<div class='titleLeft'>
+  		Goal 1: New Approach to Learing
+  	</div>
+  	
+  	<div class='titleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  	
+  	
+  </h3>
+ 
+  	
+  	
   <div>
    <div  class='subTitleGold'>
-    <h4>ผลสำเร็จของการดำเนินงานในช่วงแผนกลยุทธ์ มจธ.</h4>
+   
+	<div class='subTitleLeft'>
+		 <h4>ผลสำเร็จของการดำเนินงานในช่วงแผนกลยุทธ์ มจธ.</h4>
+  	</div>
+  	<div class='subTitleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	<div class='clearfix'></div>
    </div>
-    <!-- Table Start -->
-     <table class="table table-bordered table-striped"> 
+
+
+         <!-- Table Grid Start -->
+     
         
-        <thead> 
-        <tr> 
-        	<th><b>ตัวที่</b></th> 
-	        <th><b>ชื่อตัวชี้วัด</b></th> 
-	        <th><b>ประเภทปี</b></th> 
-	        <th><b>ช่วงเวลา</b></th> 
-	        <th><b>เป้าหมาย</b></th> 
-	        <th><b>หน่วยวัด</b></th> 
-	        <th><b>ผลงาน</b></th> 
-	        <th><b>%ผลงานเทียบเป้าหมาย</b></th> 
-	        <th><b>น้ำหนัก</b></th> 
-	        <th><b>%เฉลี่ยถ่วงน้ำหนัก</b></th> 
-	        <th><b>ข้อมูลล่าสุด</b></th> 
-        </tr> 
-        </thead> 
-        <tbody> 
-        <tr> 
-        	<td>1</td> 
-        	<td>ผลการสำรวจีความคิดเห็นเกี่ยวกับประสบการณ์การเรียนรู้ในการใช้ชีวิต และ
-การมีส่วนร่วมก้ับกิจกรรมของมหาวิทยาลัย(Student Engagement)</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ระดับ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td> 
-        	
-        </tr> 
-        <tr> 
-        	<td>2</td> 
-        	<td>ร้อยละของนักศึกษาที่มีผลลัพธ์การเรียนรู้ตามเกฎ์มาตรฐาน  KMUTT- Student QF</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ร้อยละ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td> 
-         <tr> 
-         	 <td>3</td> 
-        	<td>ความสามารถในการได้รับการจ้างงาน่ของบัณฑิต(Graduate Employability)</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ระดับ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td>  
-         </tr> 
+         <table id="grid" style='height:500px;'>
+        
+        		<!-- 
+                <colgroup>
+                   
+                  
+                    <col />
+                    <col style="width:300px"/>
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col />
+                    <col style="width:140px" />
+                    <col style="width:90px" />
+                    <col style="width:90px" />
+                    <col style="width:90px" />
+                </colgroup>
+                 -->
+                 	
+                <thead>
+                    <tr>
+                    	<th data-field="Filed0"></th>
+                        <th data-field="Filed1"><b>ตัวที่</b></th>
+                        <th data-field="Filed2"><b>ชื่อตัวชี้วัด</b></th>
+                        <th data-field="Filed3"><b>ประเภทปี</b></th>
+                        <th data-field="Filed4"><b>ช่วงเวลา</b></th>
+                        <th data-field="Filed5"><b>เป้าหมาย</b></th>
+                        <th data-field="Filed6"><b>หน่วยวัด</b></th>
+                        <th data-field="Filed7"><b>ผลงาน</b></th>
+                        <th data-field="Filed8"><b>%ผลงานเทียบเป้าหมาย</b></th>
+                        <th data-field="Filed9"><b>น้ำหนัก</b></th>
+                        <th data-field="Filed10"><b>%เฉลี่ยถ่วงน้ำหนัก</b></th>
+                        <th data-field="Filed11"><b>ข้อมูลล่าสุด</b></th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="kpiLIstData1">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     
+                   
+                </tbody>
+            </table>
+         <!-- Table Grid End -->
          
-         <tr> 
-         	 <td>4</td> 
-        	<td>ความสามารถในการได้รับการจ้างงาน่ของบัณฑิต(Graduate Employability)</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ระดับ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td>  
-         </tr> 
-         
-         <tr> 
-         	 <td>5</td> 
-        	<td>ความสามารถในการได้รับการจ้างงาน่ของบัณฑิต(Graduate Employability)</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ระดับ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td>  
-         </tr> 
-         
-         <tr> 
-         	 <td>6</td> 
-        	<td>ความสามารถในการได้รับการจ้างงาน่ของบัณฑิต(Graduate Employability)</td> 
-        	<td>ผลการศึกษา</td> 
-        	<td>เดือน</td> 
-        	<td>70</td> 
-        	<td>ระดับ</td> 
-        	<td>56.00%</td> 
-        	<td>80% BarGraph</td> 
-        	<td>5%</td> 
-        	<td>4.00%</td> 
-        	<td>2015-10-28 03:00:31</td>  
-         </tr> 
-         </tbody> 
-         </table>
-         <!-- Table End -->
-    
+    	<div class='clearfix'></div>
   </div>
   
-  	<h3 class='titleGold'>Goal 2: S&T Core Capability and Clustering</h3>
+  	<h3 class='titleGold'>
+  	<!-- titleGold start -->
+  	<div class='titleLeft'>
+  		Goal 2: S&T Core Capability and Clustering
+  	</div>
+  	
+  	<div class='titleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  	
+  	</h3>
  
   <div>
     <p>
@@ -273,7 +265,23 @@ function callServeResource(){
     3............<br>
     </p>
   </div>
-  <h3 class='titleGold'>Goal 3: Humanization</h3>
+  <h3 class='titleGold'>
+  
+  
+  <!-- titleGold start -->
+  	<div class='titleLeft'>
+  		Goal 3: Humanization
+  	</div>
+  	
+  	<div class='titleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  
+  </h3>
   <div>
     <p>
     1............<br>
@@ -286,7 +294,29 @@ function callServeResource(){
       <li>List item three</li>
     </ul>
   </div>
-  <h3 class='titleGold'>Goal 4: Good Governance & Modern Management</h3>
+  <h3 class='titleGold'>
+  
+  
+   <!-- titleGold start -->
+  	<div class='titleLeft'>
+  		
+  		Goal 4: Good Governance & Modern Management
+  		
+  	</div>
+  	
+  	
+  	<div class='titleRight'>
+  	
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  		
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  	
+  
+  </h3>
   <div>
     <p>
     1............<br>
@@ -300,7 +330,23 @@ function callServeResource(){
     </p>
   </div>
   
-  <h3 class='titleGold'>Goal 5: Networking and Resource Utilization</h3>
+  <h3 class='titleGold'>
+  
+  <!-- titleGold start -->
+  
+  	<div class='titleLeft'>
+  		Goal 5: Networking and Resource Utilization
+  	</div>
+  	
+  	<div class='titleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  
+  </h3>
   <div>
     <p>
     1............<br>
@@ -314,7 +360,23 @@ function callServeResource(){
     </p>
   </div>
   
-  <h3 class='titleGold'>Goal 6: Internationalization</h3>
+  <h3 class='titleGold'> 
+  
+  
+  <!-- titleGold start -->
+  	<div class='titleLeft'>
+  		Goal 6: Internationalization
+  	</div>
+  	
+  	<div class='titleRight'>
+  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+  	</div>
+  	
+  	<div class='clearfix'></div>
+  	
+  	<!-- titleGold end -->
+  	
+  </h3>
   <div>
     <p>
     1............<br>
@@ -330,8 +392,13 @@ function callServeResource(){
   
 </div>
 
-
 </div>   
+
+
+
+
+ 
+ 
 
 </body>
 </html>

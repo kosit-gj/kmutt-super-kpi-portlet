@@ -1,82 +1,125 @@
 <?xml version="1.0"?>
 <!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
-
+  
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>abc</portlet-name>
+		<portlet-name>abc</portlet-name> 
 		<icon>/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> 
 		<css-class-wrapper>abc-portlet</css-class-wrapper>
-	</portlet>
-	<portlet>
-		<portlet-name>my-hello-world</portlet-name>
-		<icon>/icon.png</icon>
-		<header-portlet-css>/css/main.css</header-portlet-css>
-		
-		
-		<footer-portlet-javascript>
-			/js/main.js
-		</footer-portlet-javascript>
+	</portlet>    
+	<portlet>      
+		<portlet-name>my-hello-world</portlet-name>           
+		<icon>/icon.png</icon>       
+		<header-portlet-css>/css/main.css</header-portlet-css> 
+		       
+		            
+		<footer-portlet-javascript>     
+			/js/main.js  
+		</footer-portlet-javascript>        
 		<css-class-wrapper>my-hello-world-portlet</css-class-wrapper>
-	</portlet>
+	</portlet> 
 	<portlet>
-		<portlet-name>supper-kp-is</portlet-name>
-		<icon>/icon.png</icon>
-		
-		<header-portlet-css>/css/jquery-ui.css</header-portlet-css>
+		<portlet-name>supper-kp-is</portlet-name>   
+		<icon>/icon.png</icon>   
+		  
+		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
 		<header-portlet-css>/css/supperKpi.css</header-portlet-css>
+		<!-- 
+		<header-portlet-css>/css/bootstrap.min.css</header-portlet-css>   -->
+		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.common.css</header-portlet-css> 
+		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.default.css</header-portlet-css> 
 		
 		
-		<footer-portlet-javascript>
-			/js/cSuperKpis.js
-		</footer-portlet-javascript>
-		
-		
-		
-		
-		<css-class-wrapper>supper-kp-is-portlet</css-class-wrapper>
+		          
+		           
+		   
+		  
+		<footer-portlet-javascript>  
+			/js/jquery.sparkline.min.js  
+		</footer-portlet-javascript>  
+		  
+	
+		 
+		     
+		     
+		  
+		<footer-portlet-javascript> 
+			/js/ChartLib_KendoUI/js/kendo.all.js  
+		</footer-portlet-javascript>      
+		         
+		      		     
+		<footer-portlet-javascript>   
+			/js/cSuperKpis.js         
+		</footer-portlet-javascript>    
+		 
+		     
+		 
+		<css-class-wrapper>supper-kp-is-portlet</css-class-wrapper> 
 	</portlet>
-	<portlet>
-		<portlet-name>test-ajax</portlet-name>
-		<icon>/icon.png</icon>
-		
+	<portlet>  
+		<portlet-name>test-ajax</portlet-name> 
+		<icon>/icon.png</icon> 
+		  
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>
-			/js/main.js
+			/js/main.js  
 		</footer-portlet-javascript>
 		
 		<css-class-wrapper>test-ajax-portlet</css-class-wrapper>
-	</portlet>
-	
+	</portlet> 
+	  
 	<portlet>
 		<portlet-name>portlet-kpi1_1</portlet-name>
-		<icon>/icon.png</icon>
-		
+		<icon>/icon.png</icon>  
+		 
+		<!-- <header-portlet-css>/css/bootstrap.min.css</header-portlet-css> -->  
+		<header-portlet-css>/css/jquery.circliful.css</header-portlet-css> 
+		<header-portlet-css>/css/material-design-iconic-font.min.css</header-portlet-css> 
 		<header-portlet-css>/css/superKpis1_1.css</header-portlet-css>
-		<footer-portlet-javascript>
-			/js/fusioncharts-suite-xt/js/fusioncharts.js
-			
+		 
+		<footer-portlet-javascript> 
+			/js/main.js     
 		</footer-portlet-javascript>
-		
+		     
 		<footer-portlet-javascript>
+			/js/fusioncharts-suite-xt/js/fusioncharts.js    
+			         
+		</footer-portlet-javascript>   
+		  
+		<footer-portlet-javascript> 
 			/js/fusioncharts-suite-xt/js/themes/fusioncharts.theme.fint.js
+		</footer-portlet-javascript>      
+		  
+		 <footer-portlet-javascript>            
+			/js/jquery.circliful.js    
+		</footer-portlet-javascript>     
+		  
+		<footer-portlet-javascript>       
+			/js/cSuperKpis1_1.js    
+	
 		</footer-portlet-javascript>
 		
-		<footer-portlet-javascript>
-			/js/cSuperKpis1_1.js 
-			
-		</footer-portlet-javascript>
-		
+		     
 		
 		<css-class-wrapper>portlet-kpi1_1-portlet</css-class-wrapper>
-	</portlet>
-	
-	
-	<role-mapper>
-		<role-name>administrator</role-name>
-		<role-link>Administrator</role-link>
-	</role-mapper>
+	</portlet>  
+	     
+	       
+	<portlet>  
+		<portlet-name>test-portlet2</portlet-name>
+		<icon>/icon.png</icon> 
+		<header-portlet-css>/css/main.css</header-portlet-css>
+		<footer-portlet-javascript> 
+			/js/main.js  
+		</footer-portlet-javascript>
+		<css-class-wrapper>test-portlet2-portlet</css-class-wrapper>     	
+	</portlet>    
+	<role-mapper>       
+		<role-name>administrator</role-name>            
+		<role-link>Administrator</role-link>        
+	</role-mapper>        
 	<role-mapper>
 		<role-name>guest</role-name>
 		<role-link>Guest</role-link>
@@ -85,8 +128,8 @@
 		<role-name>power-user</role-name>
 		<role-link>Power User</role-link>
 	</role-mapper>
-	<role-mapper>
+	<role-mapper> 
 		<role-name>user</role-name>
 		<role-link>User</role-link>
-	</role-mapper>
+	</role-mapper> 
 </liferay-portlet-app>

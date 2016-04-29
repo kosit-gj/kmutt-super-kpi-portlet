@@ -12,9 +12,10 @@
 		<portlet id="supper-kp-is"></portlet>
 		<portlet id="test-ajax"></portlet>
 		<portlet id="portlet-kpi1_1"></portlet>
+		<portlet id="test-portlet2"></portlet>
 	</category>
 
-
+ 
 
 
 </display>

@@ -1,0 +1,89 @@
+
+.aui .headerGraph{
+	/*height:80px;*/
+	background:#ffd320;
+	color:#000000;
+	border-radius: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.aui .boxGraph{
+
+	/*background:yellow;*/
+	height:190px;
+}
+.aui .boxGraph .contentGraph{
+	
+	background: #d2ddeb none repeat scroll 0 0;
+    border: 5px solid #ff0;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 16px;
+	
+}
+.aui .boxGraph .areaGraph{
+/*
+	background:#d2ddea;
+	border:5px #ffff00 solid;
+	border-radius: 10px;
+	margin:5px;
+*/	
+}
+.aui .donutChart{
+	width:200px;
+	height:200px;
+}
+.aui .paramYearArea{
+	
+}
+.aui .paramYearArea .paramYearText{
+	float:left;
+	width:100px;
+	text-align:right;
+	padding:5px;
+}
+.aui .paramYearArea .paramYear{
+	float:left;
+	width:70px;
+}
+
+.aui .paramMonthArea .paramMonthText{
+	float:left;
+	width:100px;
+	text-align:right;
+	padding:5px;
+}
+.aui .paramMonthArea .paramMonth{
+	float:left;
+	width:70px;
+}
+
+.aui .paramOrgArea .paramOrgText{
+	float:left;
+	width:123px;
+	text-align:right;
+	padding:5px;
+}
+.aui .paramOrgArea .paramOrg{
+	float:left;
+	width:300px;
+}
+.aui .btnSubmitArea{
+	float:left;
+	width:70px;
+}
+.aui .btnSubmitArea .btnSubmit{
+
+	height:32px;
+}
+.aui .row-fluid [class*="span"]{
+	margin-left: 0%;
+}
+.aui .signed-in.controls-visible .portlet-title{
+	background:#45cbf5 none repeat scroll 0 0;
+}
+.aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
+	background-color: #fafafa;
+}

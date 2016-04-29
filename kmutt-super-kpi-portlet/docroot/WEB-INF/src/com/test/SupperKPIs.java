@@ -2,63 +2,31 @@ package com.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.portlet.PortletException;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
+import javax.sql.DataSource;
+
+import org.apache.log4j.Logger;
+import org.json.JSONArray;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
-
-
-
-
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import javax.naming.*;
-import javax.sql.*;
-import java.sql.*;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.junit.runner.Request;
-import org.apache.log4j.Logger;
+import com.test.connectionJndi;
 
-/**
- * Portlet implementation class SupperKPIs
- */
+
 public class SupperKPIs extends MVCPortlet {
 	
-	
-	
-    private static Log _log = LogFactoryUtil.getLog(SupperKPIs.class.getName());
-	
-    
-    @Override
-    public void render(RenderRequest request, RenderResponse response)
-    throws PortletException,IOException{
-    	_log.info("this is render method...");
-    	super.render(request, response);
-    }
-	@Override
-	public void serveResource(ResourceRequest resourceRequest,
-	ResourceResponse resourceResponse) throws IOException,
-	PortletException{
-		_log.info("This is serve resource method...");
-		PrintWriter out = resourceResponse.getWriter();
-		out.println("This is sample Text");
-		out.flush();
-		super.serveResource(resourceRequest, resourceResponse);
-	}
-	
-	public String init2() {
-		return "hello world1111111";
-	}
-
-	private static Logger logger=Logger.getLogger("connectionJNDI");
-
+	  private static Logger logger=Logger.getLogger("connectionJNDI");
 	  String data1 = "";
 	  String data2 = "";
 	  String data3 = "";
@@ -74,44 +42,7 @@ public class SupperKPIs extends MVCPortlet {
 	  String FormatHTML="";
 	  String optionBranch="";
 	  
-	  
-
-	  public void initTest() {
-		    try{
-		      Context ctx = new InitialContext();
-		      if(ctx == null ) {
-		          throw new Exception("Boom - No Context");
-		      }else{
-		    	  System.out.println("ok");
-		      }
-		      DataSource ds = 
-		            (DataSource)ctx.lookup(
-		               "java:comp/env/jdbc/jndiDB");
-
-		      if (ds != null) {
-		        Connection conn = ds.getConnection();
-		              
-		        if(conn != null)  {
-		           
-		            Statement stmt = conn.createStatement();
-		            ResultSet rst = 
-		                stmt.executeQuery(
-		                  "select * from Book");
-		            while(rst.next()) {
-		               data1+=rst.getString(2);
-		              
-		            }
-		            conn.close();
-		        }
-		      }
-		    }catch(Exception e) {
-		    	e.printStackTrace();
-		    	logger.error("erorr"+e);
-		    }
-		 }
-	  
-	  
-	  public void selectByIndex(String query,String columns) {
+	  public JSONArray selectByIndex(String query,String columns) {
 
 		    try{
 		      Context ctx = new InitialContext();
@@ -147,58 +78,100 @@ public class SupperKPIs extends MVCPortlet {
 
 		            }
 		            dataObject=obj_json;
-		            conn.close();
+		            return obj_json;
 		        }
 		      }
 		    }catch(Exception e) {
 		      e.printStackTrace();
 		      logger.error("erorr"+e);
 		    }
+			return null;
 		 }
 	  
-	  public void selectByColumnName(String query,String field) {
-
-		    try{
-		      Context ctx = new InitialContext();
-		      if(ctx == null ) 
-		          throw new Exception("Boom - No Context");
-
-		      DataSource ds = 
-		            (DataSource)ctx.lookup(
-		               "java:comp/env/jdbc/TestDB");
-
-		      if (ds != null) {
-		        Connection conn = ds.getConnection();
-		              
-		        if(conn != null)  {
-		        	dataObject="";
-		            Statement stmt = conn.createStatement();
-		            ResultSet rst = 
-		                stmt.executeQuery(query);
-		            String[] fieldSplit=field.split(",");
-		            
-		            JSONArray obj_json = new JSONArray();
-		            while(rst.next()) {
-		            	JSONArray sub_obj_json = new JSONArray();
-		            	for(int i=0;i<fieldSplit.length;i++){
-		            		
-		            		sub_obj_json.put(rst.getString(fieldSplit[i]));
-		            		
-		            	}
-		            	obj_json.put(sub_obj_json);
-		            	dataObject=obj_json;
-		            	
-		            }
-		            
-		            conn.close();
-		        }
-		      }
-		    }catch(Exception e) {
-		      e.printStackTrace();
-		      logger.error("erorr"+e);
-		    }
-		 }
 	  
-	public String getdata1() { return data1;}
+	
+	private static Log _log = LogFactoryUtil.getLog(TestAjaxPortlet.class.getName());
+	
+	@Override
+	public void serveResource(ResourceRequest resourceRequest,
+			ResourceResponse resourceResponse) throws IOException,
+			PortletException {
+		
+
+		//String actionParam = ParamUtil.get(resourceRequest, "actionParam", StringPool.BLANK);
+		String query = ParamUtil.get(resourceRequest, "dataQuery", StringPool.BLANK);
+		String columns = ParamUtil.get(resourceRequest, "dataColumn", StringPool.BLANK);
+		
+		
+		PrintWriter out = resourceResponse.getWriter();
+		
+		//if("getBook".equals(actionParam)){
+
+			out.print(selectByIndex(query,columns));
+		
+		//}
+		resourceResponse.setContentType("text/html");
+		out.flush();
+		
+		
+		super.serveResource(resourceRequest, resourceResponse);
+	}
+	
+	
+
+	public Object testFn1(String query,String column){
+		//return data+"data is ok";
+		return dataObject;	
+	}
+	
+	
+	public void selectByIndexDwh(String query,String columns) {
+
+	    try{
+	      Context ctx = new InitialContext();
+	      if(ctx == null ) 
+	          throw new Exception("Boom - No Context");
+
+	      DataSource ds = 
+	            (DataSource)ctx.lookup(
+	               "java:comp/env/jdbc/jndiDB");
+
+	      if (ds != null) {
+	        Connection conn = ds.getConnection();
+	              
+	        if(conn != null)  {
+	        	dataObject="";
+	            Statement stmt = conn.createStatement();
+	            ResultSet rst = 
+	                stmt.executeQuery(query);
+	            String[] fieldSplit=columns.split(",");
+	            
+	            JSONArray obj_json = new JSONArray();
+	            
+	            	
+	            while(rst.next()) {
+	            	
+	            	JSONArray sub_obj_json = new JSONArray();
+	            	for(int i=0;i<fieldSplit.length;i++){
+	            		
+	            		sub_obj_json.put(rst.getString(Integer.parseInt(fieldSplit[i])));
+	            		
+	            	}
+	            	obj_json.put(sub_obj_json);
+
+	            }
+	            dataObject=obj_json;
+	            conn.close();
+	        }
+	      }
+	    }catch(Exception e) {
+	      e.printStackTrace();
+	      logger.error("erorr"+e);
+	    }
+	 }
+  
+	
 	public Object getData() { return dataObject;}
+	
+	
 }
