@@ -84,12 +84,12 @@ getKpiGoldsListFn=function(){
 						}
 						
 						kpiLIstData+="Field1:"+(index+1)+",";
-						kpiLIstData+="Field2:\""+indexEntry[0]+"\",";
-						kpiLIstData+="Field3:\""+indexEntry[2]+"\",";
-						kpiLIstData+="Field4:\""+indexEntry[3]+"\",";
-						kpiLIstData+="Field5:\""+indexEntry[4]+"\",";
-						kpiLIstData+="Field6:\""+indexEntry[5]+"\",";
-						kpiLIstData+="Field7:\""+indexEntry[6]+"\",";
+						kpiLIstData+="Field2:\"<div class='textGrid'>"+indexEntry[0]+"</div>\",";
+						kpiLIstData+="Field3:\"<div class='textGrid'>"+indexEntry[2]+"</div>\",";
+						kpiLIstData+="Field4:\"<div class='textGrid'>"+indexEntry[3]+"</div>\",";
+						kpiLIstData+="Field5:\"<div class='textGrid'>"+indexEntry[4]+"</div>\",";
+						kpiLIstData+="Field6:\"<div class='textGrid'>"+indexEntry[5]+"</div>\",";
+						kpiLIstData+="Field7:\"<div class='textGrid'>"+indexEntry[6]+"</div>\",";
 						kpiLIstData+="Field8:\"<div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> \",";
 						kpiLIstData+="Field9:\"5%\",";
 						kpiLIstData+="Field10:\"4.00%\",";
@@ -120,8 +120,7 @@ getKpiGoldsListFn=function(){
 
 paramMonthFn();
 paramOrgFn();
-console.log("11111111111111111111111111");
-console.log(getKpiGoldsListFn());
+
 
 
 //Call Param by ajax end
@@ -147,16 +146,48 @@ $(document).ready(function(){
 	
 var kpiLIstData2="[";
 	kpiLIstData2+="{";
-	kpiLIstData2+="Field1:1,";
-	kpiLIstData2+="Field2:\"afad\",";
-	kpiLIstData2+="Field3:\"afad\",";
-	kpiLIstData2+="Field4:\"afad\",";
-	kpiLIstData2+="Field5:\"afad\",";
-	kpiLIstData2+="Field6:\"afad\",";
-	kpiLIstData2+="Field7:\"afad\",";
-	kpiLIstData2+="Field8:\"<div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> \"";
+	kpiLIstData2+="Field1:1.1,";
+	kpiLIstData2+="Field2:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field3:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field4:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field5:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field6:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field7:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field8:\"<div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> \",";
+	kpiLIstData2+="Field9:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field10:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field11:\"<div class='textGrid'>afad</div>\"";
+
+	kpiLIstData2+="},";
+	kpiLIstData2+="{";
+	kpiLIstData2+="Field1:1.2,";
+	kpiLIstData2+="Field2:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field3:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field4:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field5:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field6:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field7:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field8:\"<div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> \",";
+	kpiLIstData2+="Field9:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field10:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field11:\"<div class='textGrid'>afad</div>\"";
+
+	kpiLIstData2+="}," ;
+	kpiLIstData2+="{";
+	kpiLIstData2+="Field1:1.3,";
+	kpiLIstData2+="Field2:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field3:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field4:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field5:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field6:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field7:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field8:\"<div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> \",";
+	kpiLIstData2+="Field9:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field10:\"<div class='textGrid'>afad</div>\",";
+	kpiLIstData2+="Field11:\"<div class='textGrid'>afad</div>\"";
 
 	kpiLIstData2+="}";
+			
 	kpiLIstData2+="]";
 	
 	var objKpiListData2=eval("("+kpiLIstData2+")");
@@ -166,27 +197,27 @@ var kpiLIstData2="[";
 		
 	              {
 	                  field: "Field1",
-					   width: 277
+					   width: 50
 	              },
 	              {
 	                  field: "Field2",
-					  width:65
+					  width:300
 					 
 				 },
 	              {
 	                  field: "Field3",
-						 width:80
+						 width:100
 					
 				
 				 },
 	              {
 	                  field: "Field4",
-					 width:55
+					 width:100
 				
 				 },
 	              {
 	                  field: "Field5",
-					 width:80
+					 width:100
 						
 					
 
@@ -194,7 +225,7 @@ var kpiLIstData2="[";
 	          
 	              {
 	                  field: "Field6",
-					 width:85
+					 width:100
 					 
 				 },
 	              {
@@ -203,14 +234,22 @@ var kpiLIstData2="[";
 					
 				 },
 	              {
-	                  field: "Field7",
-					 width:80
+	                  field: "Field8",
+					 width:120
 			
 					
 				 },
 	              
 	              {
-	                  field: "Field8"
+	                  field: "Field9"
+				
+					 
+				 },{
+	                  field: "Field10"
+				
+					 
+				 },{
+	                  field: "Field11"
 				
 					 
 				 }];
@@ -226,6 +265,13 @@ function detailInit(e) {
 		}
 	
 	}).appendTo(e.detailCell);
+	
+	//set data
+	$(".k-grid td").css({"padding":"0em 0em"});
+	//setTimeout(function(){
+		$(".sparkLine").sparkline([10,12,12,9,7], {
+		    type: 'bullet'});
+	//},1000);
 
 	return false;
 	
@@ -249,14 +295,14 @@ function detailInit(e) {
                  { field: "Field1",  width: "50px"},
                  //{ field: "Field2", title: "ชื่อตัวชี้วัด", format: "{0:c}", width: "130px" },
                  { field: "Field2",  width: "300px" },
-                 { field: "Field3"},
-                 { field: "Field4"},
-                 { field: "Field5" },
-                 { field: "Field6"},
-                 { field: "Field7"},
-                 { field: "Field8"},
-                 { field: "Field9"},
-                 { field: "Field10"},
+                 { field: "Field3",  width: "100px" },
+                 { field: "Field4",  width: "100px" },
+                 { field: "Field5" ,  width: "100px" },
+                 { field: "Field6",  width: "100px" },
+                 { field: "Field7",  width: "100px" },
+                 { field: "Field8",  width: "120px" },
+                 { field: "Field9",  width: "100px" },
+                 { field: "Field10",  width: "100px" },
                  { field: "Field11",width: "100px" }
              ],
              
@@ -272,6 +318,7 @@ function detailInit(e) {
 		    type: 'bullet'});
 	},1000);
    
+	$(".k-grid td").css({"padding":"0em 0em"});
 
 
 

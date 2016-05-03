@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
-  
+    
 <liferay-portlet-app>
-	<portlet>
+	<portlet>  
 		<portlet-name>abc</portlet-name> 
 		<icon>/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> 
 		<css-class-wrapper>abc-portlet</css-class-wrapper>
-	</portlet>    
-	<portlet>      
+	</portlet>     
+	<portlet>              
 		<portlet-name>my-hello-world</portlet-name>           
 		<icon>/icon.png</icon>       
 		<header-portlet-css>/css/main.css</header-portlet-css> 
-		       
-		            
+		        
+		              
 		<footer-portlet-javascript>     
-			/js/main.js  
+			/js/main.js   
 		</footer-portlet-javascript>        
 		<css-class-wrapper>my-hello-world-portlet</css-class-wrapper>
 	</portlet> 
@@ -31,9 +31,9 @@
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.common.css</header-portlet-css> 
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.default.css</header-portlet-css> 
 		
-		
-		          
+		 
 		           
+		              
 		   
 		  
 		<footer-portlet-javascript>  
@@ -42,9 +42,9 @@
 		  
 	
 		 
+		      
 		     
-		     
-		  
+		   
 		<footer-portlet-javascript> 
 			/js/ChartLib_KendoUI/js/kendo.all.js  
 		</footer-portlet-javascript>      
@@ -81,12 +81,12 @@
 		 
 		<footer-portlet-javascript> 
 			/js/main.js     
-		</footer-portlet-javascript>
+		</footer-portlet-javascript> 
 		     
 		<footer-portlet-javascript>
 			/js/fusioncharts-suite-xt/js/fusioncharts.js    
 			         
-		</footer-portlet-javascript>   
+		</footer-portlet-javascript>    
 		  
 		<footer-portlet-javascript> 
 			/js/fusioncharts-suite-xt/js/themes/fusioncharts.theme.fint.js
