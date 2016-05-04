@@ -121,7 +121,7 @@
 
 
 
-<div class='bgKpi'>
+<div class='bgKpi' >
 <h3 class='titleKpi'>
 <div class='picturePerson'>
 	<img width='200' src='<%= renderRequest.getContextPath() + "/images/main.png" %>' />
@@ -167,6 +167,8 @@
   	
   	
   <div>
+  
+   <!-- data content start -->
    <div  class='subTitleGold'>
    
 	<div class='subTitleLeft'>
@@ -240,7 +242,12 @@
          <!-- Table Grid End -->
          
     	<div class='clearfix'></div>
+    	
+    	
+    	<!-- data content end -->
   </div>
+  
+<!-- start box accordion  -->
   
   	<h3 class='titleGold'>
   	<!-- titleGold start -->
@@ -265,6 +272,8 @@
     3............<br>
     </p>
   </div>
+ <!-- end box accordion  -->
+  
   <h3 class='titleGold'>
   
   
@@ -282,6 +291,7 @@
   	<!-- titleGold end -->
   
   </h3>
+  
   <div>
     <p>
     1............<br>
@@ -294,17 +304,15 @@
       <li>List item three</li>
     </ul>
   </div>
+  
+  
   <h3 class='titleGold'>
-  
-  
    <!-- titleGold start -->
   	<div class='titleLeft'>
   		
   		Goal 4: Good Governance & Modern Management
   		
   	</div>
-  	
-  	
   	<div class='titleRight'>
   	
   		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
@@ -314,9 +322,8 @@
   	<div class='clearfix'></div>
   	
   	<!-- titleGold end -->
-  	
-  
   </h3>
+  
   <div>
     <p>
     1............<br>
@@ -329,6 +336,8 @@
     3............<br>
     </p>
   </div>
+  
+  
   
   <h3 class='titleGold'>
   
@@ -390,6 +399,9 @@
     </p>
   </div>
   
+  <!-- 
+  <div id='contentListGold'></div>
+   -->
 </div>
 
 </div>   

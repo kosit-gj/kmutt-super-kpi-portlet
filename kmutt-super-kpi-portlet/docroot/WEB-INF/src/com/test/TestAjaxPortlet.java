@@ -21,7 +21,8 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.test.connectionJndi;
+
+import th.ac.kmutt.service.connectionJndi;
 
 
 public class TestAjaxPortlet extends MVCPortlet {

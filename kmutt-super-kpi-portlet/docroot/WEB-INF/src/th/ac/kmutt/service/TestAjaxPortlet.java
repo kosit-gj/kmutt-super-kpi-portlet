@@ -1,4 +1,4 @@
-package com.test;
+package th.ac.kmutt.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +25,7 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
 import th.ac.kmutt.service.connectionJndi;
 
 
-public class SupperKPIs extends MVCPortlet {
+public class TestAjaxPortlet extends MVCPortlet {
 	
 	  private static Logger logger=Logger.getLogger("connectionJNDI");
 	  String data1 = "";
@@ -78,7 +78,7 @@ public class SupperKPIs extends MVCPortlet {
 		            	obj_json.put(sub_obj_json);
 
 		            }
-		            dataObject=obj_json;
+		            //dataObject=obj_json;
 		            return obj_json;
 		        }
 		      }
@@ -98,20 +98,32 @@ public class SupperKPIs extends MVCPortlet {
 			ResourceResponse resourceResponse) throws IOException,
 			PortletException {
 		
-
-		//String actionParam = ParamUtil.get(resourceRequest, "actionParam", StringPool.BLANK);
+		String param = ParamUtil.get(resourceRequest, "param2", StringPool.BLANK);
+		String param2 = ParamUtil.get(resourceRequest, "param3", StringPool.BLANK);
+		String actionParam = ParamUtil.get(resourceRequest, "actionParam", StringPool.BLANK);
+		
 		String query = ParamUtil.get(resourceRequest, "dataQuery", StringPool.BLANK);
 		String columns = ParamUtil.get(resourceRequest, "dataColumn", StringPool.BLANK);
 		
 		
 		PrintWriter out = resourceResponse.getWriter();
 		
-		//if("getBook".equals(actionParam)){
-
+		if("getBook".equals(actionParam)){
+			
+			//out.print("query ==>"+query);
+			//out.print("columns ==>"+columns);
 			out.print(selectByIndex(query,columns));
 		
-		//}
+		}
+		/*
+		_log.info("Parameter is ==>" + param);
+		*/
 		resourceResponse.setContentType("text/html");
+		/*
+		out.print("You have entered ==>"+param+"<br>");
+		out.print("You have entered2 ==>"+param2);
+		_log.info("AUI Ajax call is performed");
+		*/
 		out.flush();
 		
 		
@@ -120,59 +132,13 @@ public class SupperKPIs extends MVCPortlet {
 	
 	
 
-	public Object testFn1(String query,String column){
+	public JSONArray testFn1(String query,String column){
+		
 		//return data+"data is ok";
-		return dataObject;	
+		return selectByIndex(query,column);
+		 
+		
 	}
-	
-	
-	public void selectByIndexDwh(String query,String columns) {
-
-	    try{
-	      Context ctx = new InitialContext();
-	      if(ctx == null ) 
-	          throw new Exception("Boom - No Context");
-
-	      DataSource ds = 
-	            (DataSource)ctx.lookup(
-	               "java:comp/env/jdbc/jndiDB");
-
-	      if (ds != null) {
-	        Connection conn = ds.getConnection();
-	              
-	        if(conn != null)  {
-	        	dataObject="";
-	            Statement stmt = conn.createStatement();
-	            ResultSet rst = 
-	                stmt.executeQuery(query);
-	            String[] fieldSplit=columns.split(",");
-	            
-	            JSONArray obj_json = new JSONArray();
-	            
-	            	
-	            while(rst.next()) {
-	            	
-	            	JSONArray sub_obj_json = new JSONArray();
-	            	for(int i=0;i<fieldSplit.length;i++){
-	            		
-	            		sub_obj_json.put(rst.getString(Integer.parseInt(fieldSplit[i])));
-	            		
-	            	}
-	            	obj_json.put(sub_obj_json);
-
-	            }
-	            dataObject=obj_json;
-	            conn.close();
-	        }
-	      }
-	    }catch(Exception e) {
-	      e.printStackTrace();
-	      logger.error("erorr"+e);
-	    }
-	 }
-  
-	
-	public Object getData() { return dataObject;}
 	
 	
 }

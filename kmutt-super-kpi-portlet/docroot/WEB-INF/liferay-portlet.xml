@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
-    
+     
 <liferay-portlet-app>
-	<portlet>  
+	<portlet>   
 		<portlet-name>abc</portlet-name> 
 		<icon>/icon.png</icon>
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript> 
 		<css-class-wrapper>abc-portlet</css-class-wrapper>
-	</portlet>     
-	<portlet>              
+	</portlet>       
+	<portlet>                
 		<portlet-name>my-hello-world</portlet-name>           
 		<icon>/icon.png</icon>       
-		<header-portlet-css>/css/main.css</header-portlet-css> 
-		        
+		<header-portlet-css>/css/main.css</header-portlet-css>  
 		              
+		                   
 		<footer-portlet-javascript>     
-			/js/main.js   
+			/js/main.js        
 		</footer-portlet-javascript>        
 		<css-class-wrapper>my-hello-world-portlet</css-class-wrapper>
-	</portlet> 
+	</portlet>  
 	<portlet>
-		<portlet-name>supper-kp-is</portlet-name>   
-		<icon>/icon.png</icon>   
-		  
+		<portlet-name>supper-kp-is</portlet-name>       
+		<icon>/icon.png</icon>       
+		         
 		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
 		<header-portlet-css>/css/supperKpi.css</header-portlet-css>
 		<!-- 
@@ -31,10 +31,10 @@
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.common.css</header-portlet-css> 
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.default.css</header-portlet-css> 
 		
-		 
-		           
-		              
-		   
+		        
+		                   
+		                  
+		     
 		  
 		<footer-portlet-javascript>  
 			/js/jquery.sparkline.min.js  

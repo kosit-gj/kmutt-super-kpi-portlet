@@ -1,11 +1,13 @@
+
+
 $(document).ready(function(){
-	
-//alert("heloo");
-	
 	
 
 	
 	
+	
+	
+
 	paramMonthFn=function(){
 		var htmlParam="";
 			$.ajax({
@@ -19,7 +21,9 @@ $(document).ready(function(){
 	                
 					console.log(data);
 	                $.each(data,function(index,indexEntry){
+	                	
 	                	htmlParam+="<option value='"+indexEntry[0]+"'>"+indexEntry[2]+"</option>";
+	                	
 	                });
 	                $("#monthParam").html(htmlParam);
 	                
@@ -72,7 +76,7 @@ $(document).ready(function(){
 	                	  var dataThreshold = getThresholdFn("2558","2");
 	                	  var thresholdName=dataThreshold[0][1];
 	                	  var thresholdCOlor=dataThreshold[0][4];
-	                ;
+	                
 						  
 	                	  
 	                	  
@@ -80,7 +84,7 @@ $(document).ready(function(){
 	                		  htmlParam+="<div class='row-fluid'>";
 	                			  htmlParam+="<div class='span6  boxGraph' >";
 	             				
-	                				htmlParam+="<div class='contentGraph' style= border: 5px solid "+thresholdCOlor+";>";
+	                				htmlParam+="<div class='contentGraph' id='graph-"+index+"' style= border: 5px solid "+thresholdCOlor+";>";
 	                				 htmlParam+="<center>";
 	                				 htmlParam+="Goal "+(index+1)+" <br>";
 	                				 htmlParam+="New Approach <br>";
@@ -121,7 +125,32 @@ $(document).ready(function(){
 	              	    percentages: [10, 20, 30]
 	              	});
 	                  
-	                  
+	                //start
+	              	$(".contentGraph").click(function(){
+	              		//alert("hello jquery");
+	              		//alert(this.id);
+	              		$.ajax({
+	              			url:"/kmutt-super-kpi-portlet/View/subSkPage.jsp",
+	              			//url:"/kmutt-super-kpi-portlet/View/skpage.jsp",
+	              			type:"get", 
+	              			dataType:"html",
+	              			data:{"paramGetContextPath":"kmutt-super-kpi-portlet"},
+	              			success:function(data){
+	              				//alert(data);
+	              				$("#SKdataArea").hide();
+	              				$("#subSKdataArea").html(data);
+	              				$(".btnRollbackArea").show();
+	              			}
+	              		});
+	              	});
+	              	
+	              	$("#btnRollback").click(function(){
+	              		$("#SKdataArea").show();
+	              		$("#subSKdataArea").hide();
+          				$(".btnRollbackArea").hide();
+	              		
+	              	});
+	                //end
 	                /*Logic program here.*/
 				}
 			});
@@ -151,5 +180,7 @@ $(document).ready(function(){
 		return false;
 	});
   //search data for data end
+	
+ 
 
 });

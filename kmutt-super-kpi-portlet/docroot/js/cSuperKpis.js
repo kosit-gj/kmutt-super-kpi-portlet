@@ -1,3 +1,28 @@
+paramYearFn=function(){
+
+	var htmlParam="";
+		$.ajax({
+			url:"/kmutt-super-kpi-portlet/Model/paramYear.jsp",
+			type:"get",
+			dataType:"json",
+			async:false,
+			success:function(data){
+				
+				
+				 /*Logic program here.*/
+                
+				console.log(data);
+                $.each(data,function(index,indexEntry){
+                	htmlParam+="<option value='"+indexEntry[0]+"'>"+indexEntry[0]+"</option>";
+                });
+                $("#yearParam").html(htmlParam);
+                
+                
+                /*Logic program here.*/
+			}
+		});
+	
+	}
 paramMonthFn=function(){
 	var htmlParam="";
 		$.ajax({
@@ -42,6 +67,176 @@ paramOrgFn=function(){
 		});
 	
 	}
+getGoldFn = function(){
+	var htmlCotent="";
+	var htmldataContent="";
+	$.ajax({
+		url:"/kmutt-super-kpi-portlet/Model/kpiGolds/mGoal.jsp?paramMonth=59&paramOrg=1",
+		type:"get",
+		dataType:"json",
+		async:false,
+		data:{"paramMonth":$("#monthParam").val(),"paramOrg":$("#orgParam").val()},
+		success:function(data){
+			
+			/*Start Logic program here.*/
+			
+			/*
+		  	<h3 class='titleGold'>
+		  	<!-- titleGold start -->
+		  	<div class='titleLeft'>
+		  		Goal 2: S&T Core Capability and Clustering
+		  	</div>
+		  	
+		  	<div class='titleRight'>
+		  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+		  	</div>
+		  	
+		  	<div class='clearfix'></div>
+		  	
+		  	<!-- titleGold end -->
+		  	
+		  	</h3>
+		 
+		  <div>
+		   			
+		   			<!-- data content start -->
+		   			
+					   <div  class='subTitleGold'>
+					   
+						<div class='subTitleLeft'>
+							 <h4>ผลสำเร็จของการดำเนินงานในช่วงแผนกลยุทธ์ มจธ.</h4>
+					  	</div>
+					  	<div class='subTitleRight'>
+					  		% เฉลี่ยถ่วงน้ำหนักรวม = 48.98
+					  	</div>
+					  	<div class='clearfix'></div>
+					   </div>
+					
+					
+					         <!-- Table Grid Start -->
+					     
+					        
+					         <table id="grid" style='height:500px;'>
+					        
+					        		
+					                 	
+					                <thead>
+					                    <tr>
+					                    	<th data-field="Filed0"></th>
+					                        <th data-field="Filed1"><b>ตัวที่</b></th>
+					                        <th data-field="Filed2"><b>ชื่อตัวชี้วัด</b></th>
+					                        <th data-field="Filed3"><b>ประเภทปี</b></th>
+					                        <th data-field="Filed4"><b>ช่วงเวลา</b></th>
+					                        <th data-field="Filed5"><b>เป้าหมาย</b></th>
+					                        <th data-field="Filed6"><b>หน่วยวัด</b></th>
+					                        <th data-field="Filed7"><b>ผลงาน</b></th>
+					                        <th data-field="Filed8"><b>%ผลงานเทียบเป้าหมาย</b></th>
+					                        <th data-field="Filed9"><b>น้ำหนัก</b></th>
+					                        <th data-field="Filed10"><b>%เฉลี่ยถ่วงน้ำหนัก</b></th>
+					                        <th data-field="Filed11"><b>ข้อมูลล่าสุด</b></th>
+					                        
+					                    </tr>
+					                </thead>
+					                <tbody id="kpiLIstData1">
+					                    <tr>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                        <td></td>
+					                    </tr>
+					                     
+					                   
+					                </tbody>
+					            </table>
+					         <!-- Table Grid End -->
+					         
+					    	<div class='clearfix'></div>
+					    	
+					    	
+					    	<!-- data content end -->
+		  </div>
+		  */
+			htmldataContent+="<table id=\"grid\" style='height:500px;'>
+
+			htmldataContent+="<thead>
+				htmldataContent+="<tr>
+					htmldataContent+="<th data-field=\"Filed0\"></th>
+					htmldataContent+="<th data-field=\"Filed1\"><b>ตัวที่</b></th>
+					htmldataContent+="<th data-field=\"Filed2\"><b>ชื่อตัวชี้วัด</b></th>
+					htmldataContent+="<th data-field=\"Filed3\"><b>ประเภทปี</b></th>
+					htmldataContent+="<th data-field=\"Filed4\"><b>ช่วงเวลา</b></th>
+					htmldataContent+="<th data-field=\"Filed5\"><b>เป้าหมาย</b></th>
+					htmldataContent+="<th data-field=\"Filed6\"><b>หน่วยวัด</b></th>
+					htmldataContent+="<th data-field=\"Filed7\"><b>ผลงาน</b></th>
+					htmldataContent+="<th data-field=\"Filed8\"><b>%ผลงานเทียบเป้าหมาย</b></th>
+					htmldataContent+="<th data-field=\"Filed9\"><b>น้ำหนัก</b></th>
+					htmldataContent+="<th data-field=\"Filed10\"><b>%เฉลี่ยถ่วงน้ำหนัก</b></th>
+					htmldataContent+="<th data-field=\"Filed11\"><b>ข้อมูลล่าสุด</b></th>
+                    
+				htmldataContent+="</tr>";
+			htmldataContent+="</thead>";
+			htmldataContent+="<tbody id=\"kpiLIstData1\">";
+			htmldataContent+="<tr>";
+				htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+="<td></td>";
+					htmldataContent+=" <td></td>";
+				htmldataContent+="</tr>";
+				htmldataContent+="</tbody>";
+			htmldataContent+="</table>";
+		htmldataContent+="<div class='clearfix'></div>";
+			
+			
+			
+			$.each(data,function(index,indexEntry){
+				htmlCotent+="<h3 class='titleGold'>";
+				htmlCotent+="<div class='titleLeft'>";
+				htmlCotent+=""+indexEntry[1]+"";
+				htmlCotent+="</div>";
+				htmlCotent+="<div class='titleRight'>";
+				htmlCotent+="% เฉลี่ยถ่วงน้ำหนักรวม = "+indexEntry[2]+"";
+				htmlCotent+="</div>";
+				htmlCotent+="<div class='clearfix'></div>";
+				htmlCotent+="</h3>";
+				htmlCotent+="<div>";
+				htmlCotent+=""+htmldataContent+"";
+				htmlCotent+="</div>";
+				
+				//alert(indexEntry[0]+"="+indexEntry[1]+"="+indexEntry[2]);
+				
+	
+				
+			});
+			
+			
+			//setTimeout(function(){
+				
+				$("#accordion").html(htmlCotent);
+				$( "#accordion" ).accordion();
+			
+			//},1000);
+			
+			/*End Logic program here.*/
+		}
+	});
+			
+}
+getGoldFn();
+
 getKpiGoldsListFn=function(){
 	var kpiLIstData =[];
 		$.ajax({
@@ -53,7 +248,7 @@ getKpiGoldsListFn=function(){
 				
 				/*Logic program here.*/
                 
-
+				
                 
                 //kpiLIstData
       			 kpiLIstData+="[";
@@ -118,8 +313,10 @@ getKpiGoldsListFn=function(){
 	}
 //Call Param by ajax Start...
 
+paramYearFn();
 paramMonthFn();
 paramOrgFn();
+
 
 
 
@@ -130,7 +327,7 @@ $(document).ready(function(){
 	
 	
 
-	$( "#accordion" ).accordion();
+	//$( "#accordion" ).accordion();
 	
 	$("#btnSubmit").click(function(){
 		//alert("hello world");

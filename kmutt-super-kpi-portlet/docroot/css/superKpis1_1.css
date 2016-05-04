@@ -1,4 +1,6 @@
-
+.aui body{
+	font-size:13px;
+}
 .aui .headerGraph{
 	/*height:80px;*/
 	background:#ffd320;
@@ -21,6 +23,7 @@
     font-weight: bold;
     margin: 10px;
     padding: 16px;
+    cursor:pointer;
 	
 }
 .aui .boxGraph .areaGraph{
@@ -86,4 +89,13 @@
 }
 .aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
 	background-color: #fafafa;
+}
+.aui .btnRollbackArea{
+	float:right;
+	width:100px;
+	display:none;
+	
+}
+.aui #btnRollback{
+	padding:3px;
 }

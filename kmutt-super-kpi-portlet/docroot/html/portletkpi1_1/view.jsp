@@ -7,7 +7,6 @@
    
 <portlet:defineObjects />
 
-
 	<script src="//code.jquery.com/jquery-1.9.1.min.js"></script> 
    
 	<!-- Optional theme -->
@@ -62,6 +61,11 @@
 					<button class='btnSubmit' id='btnSubmit'>&nbsp;&nbsp; ตกลง &nbsp;&nbsp;</button>
 				</div>
 				
+				<div class='btnRollbackArea' >
+					<button class='btnRollback' id='btnRollback'>&nbsp;&nbsp; ย้อนกลับ &nbsp;&nbsp;</button>
+				</div>
+				
+				
 				<!-- orgs -->
 				
 			</div>
@@ -71,6 +75,7 @@
 
 	<div class='row-fluid '>
 		<div id="SKdataArea"></div>
+		<div id="subSKdataArea"></div>
 		
 		
 	</div>
