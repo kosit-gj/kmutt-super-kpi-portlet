@@ -21,12 +21,12 @@ order by kpi_code
 */
 
 String query="";
-query+="select kpi_id, kpi_code, kpi_name, calendar_year, actual_value, percent_actual_vs_target"; 
+query+="select kpi_id, kpi_code, kpi_name, fiscal_year, kpi_weight, percent_actual_vs_target"; 
 query+=" from kpi_result";
-query+=" where month_id = "+month_id+"";
-query+=" and calendar_year between "+(paramYear-3)+" and "+paramYear+"";
+query+=" where fiscal_month_no = "+month_id+"";
+query+=" and fiscal_year="+paramYear+"";
 query+=" and org_id = "+org_id+"";
-query+=" and parent_kpi_id = "+kpi_id+"";
+query+=" and (parent_kpi_id = "+kpi_id+" or kpi_id="+kpi_id+")";
 query+=" order by kpi_code";
 
 String culumn="1,2,3,4,5,6";

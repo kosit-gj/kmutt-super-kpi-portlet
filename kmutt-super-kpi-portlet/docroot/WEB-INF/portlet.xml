@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<!-- 
 	<portlet>
 		<portlet-name>abc</portlet-name>
 		<display-name>abc</display-name>
@@ -16,8 +17,8 @@
 			<mime-type>text/html</mime-type>
 		</supports>
 		<portlet-info>
-			<title>abc</title>
-			<short-title>abc</short-title>
+			<title>test1</title>
+			<short-title>test2</short-title>
 			<keywords>abc</keywords>
 		</portlet-info>
 		<security-role-ref>
@@ -33,6 +34,7 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	 
 	<portlet>
 		<portlet-name>my-hello-world</portlet-name>
 		<display-name>My Hello World</display-name>
@@ -66,9 +68,10 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	-->
 	<portlet>
 		<portlet-name>supper-kp-is</portlet-name>
-		<display-name>Supper KpIs</display-name>
+		<display-name> Super KPIs by Goal </display-name>
 		<portlet-class>com.test.SupperKPIs</portlet-class>
 		<init-param>
 			<name>view-template</name>
@@ -80,7 +83,7 @@
 			<portlet-mode>view</portlet-mode>
 		</supports>
 		<portlet-info>
-			<title>Supper Kp Is</title>
+			<title>Super KPIs by Goal</title>
 			<short-title>Supper Kp Is</short-title>
 			<keywords></keywords>
 		</portlet-info>
@@ -97,6 +100,7 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	<!-- 
 	<portlet>
 		<portlet-name>test-ajax</portlet-name>
 		<display-name>Test Ajax</display-name>
@@ -128,9 +132,10 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+	-->
 	<portlet>
 		<portlet-name>portlet-kpi1_1</portlet-name>
-		<display-name>Portlet Kpi1 1</display-name>
+		<display-name> Super KPIs by Super KPI </display-name>
 		<portlet-class>com.test.portletKpi1_1</portlet-class>
 		<init-param>
 			<name>view-template</name>
@@ -142,7 +147,7 @@
 			<portlet-mode>view</portlet-mode>
 		</supports>
 		<portlet-info>
-			<title>Portlet Kpi1 1</title>
+			<title>Super KPIs by Super KPI </title>
 			<short-title>Portlet Kpi1 1</short-title>
 			<keywords></keywords>
 		</portlet-info>
@@ -163,7 +168,7 @@
 	
 	<portlet>
 		<portlet-name>test-portlet2</portlet-name>
-		<display-name>Test Portlet2</display-name>
+		<display-name>Super KPIs by Perspective</display-name>
 		<portlet-class>com.test.testPortlet2</portlet-class>
 		<init-param>
 			<name>view-template</name>
@@ -175,7 +180,7 @@
 			<portlet-mode>view</portlet-mode>
 		</supports>
 		<portlet-info>
-			<title>Test Portlet2</title>
+			<title>Super KPIs by Perspective</title>
 			<short-title>Test Portlet2</short-title>
 			<keywords></keywords>
 		</portlet-info>
@@ -191,5 +196,71 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
+	</portlet> 
+	<!-- 
+	<portlet>
+		<portlet-name>super-kpis-by-perspective</portlet-name>
+		<display-name>Super Kpis By Perspective</display-name>
+		<portlet-class>com.test.SuperKPIsByPerspective</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/superkpisbyperspective/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Super Kpis By Perspective</title>
+			<short-title>Super Kpis By Perspective</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
 	</portlet>
+	 -->
+	 <!-- 
+	<portlet>
+		<portlet-name>supper-kpi-per</portlet-name>
+		<display-name>Supper Kpi Per</display-name>
+		<portlet-class>com.test.SupperKPIPer</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/supperkpiper/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Supper Kpi Per</title>
+			<short-title>Supper Kpi Per</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	 -->
 </portlet-app>

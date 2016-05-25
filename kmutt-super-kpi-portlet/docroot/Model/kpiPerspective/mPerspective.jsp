@@ -6,6 +6,7 @@
 SupperKPIs jndi = new SupperKPIs();
 String month_id = request.getParameter("month_id");
 String org_id = request.getParameter("org_id");
+
 /*
 select kpi_perspective_id, kpi_perspective_name, (sum(percent_wavg)/sum(kpi_weight))*100
 from kpi_result
@@ -18,6 +19,8 @@ query+="select kpi_perspective_id, kpi_perspective_name, (sum(percent_wavg)/sum(
 query+=" from kpi_result";
 query+=" where month_id = "+month_id+"";
 query+=" and org_id = "+org_id+"";
+query+=" and parent_kpi_id is null";
+
 query+=" group by kpi_perspective_id, kpi_perspective_name";
 
 String culumn="1,2,3";

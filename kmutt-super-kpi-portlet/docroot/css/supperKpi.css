@@ -1,10 +1,28 @@
+.aui h3{
+	font-size: 15.5px;
+}
+
+.aui .portlet-body{
+	font-size:12px;
+}
+.aui p {
+    margin: 2px;
+}
+
+
+/*
+.aui body{
+	font-size:12px;
+}
+*/
 .bgKpi{
 	background:#b6b6b6;
+	display:none;
 }
 .aui h3.titleKpi{
-	color:orange;
+	color:#af7817;
 	font-weight:bold;
-	text-shadow: 0px 1px 0px #000;
+	/*text-shadow: 0px 1px 0px #000;*/
 	padding:10px;
 	height:150px;
 }
@@ -37,6 +55,7 @@
     padding: 5px;
     width: 465px;
     position: absolute;
+     margin-left: 15px;
   
 }
 .aui .titleGold .titleRight{
@@ -44,27 +63,41 @@
     padding: 5px;
     width: 323px;
     text-align:right;
+    font-size: 15px;
 }
 .aui .subTitleGold{
 	background:#eaeaea;
 	padding:5px;
-	color:orange;
+	color:#af7817;
+	position: relative;
+	display:none;
+	height: 28px;
 }
 .aui .subTitleGold .subTitleLeft{
 	 float: left;
     padding: 5px;
-    width: 465px;
+    width: 788px;
+    position: absolute;
+    
 }
 .aui .subTitleGold .subTitleRight{
+	/*
 	 float: right;
     padding: 5px;
     width: 323px;
     text-align:right;
+    */
+    float: right;
+    left: 207px;
+    padding: 5px;
+    position: relative;
+    text-align: right;
+    width: 323px;
 }
 
 .aui .paramArea{
 	background:#5d4771;
-	padding: 10px 5px 5px;
+	padding: 5px 5px 5px;
 	color:white;
 }
 .aui .paramArea .paramYearArea{
@@ -78,11 +111,11 @@
 	float:left;
 }
 .aui .paramArea .paramOrgArea{
-	width:250px;
+	width:440px;
 	boder:1px solid red;
 	float:left;
 
-    padding:5px;
+    padding: 5px 0 0;
     text-align: right;
 }
 	
@@ -132,40 +165,49 @@
 	width:70px;
 	boder:1px solid red;
 	float:left;
+	text-align: left;
 	
 }
 .aui .paramArea .paramSubmitArea{
 	
-	padding:5px;
+	padding:2px;
 	float:left;
 	
 }
 .aui .paramArea .paramSubmitArea .btnSubmit{
 	
-	padding:3px;
+	padding:2px;
 	float:left;
-	padding-top:0px;
+	/*padding-top:0px;*/
 	
 }
 .textPercentage{
 	float:left;
-	width:38px;
+	width:55px;
 }
 .sparkLineArea{
 	float:left;
-	widht:40px;
+	width:40px;
+	 margin-left: 2px;
 }
 .picturePerson{
-	float:left;
+	float:right;
 	width:200px;
 }
 .mainText{
-	
-	float: left;
-    font-size: 28px;
-    padding-top: 39px;
-    text-align:center;
-	
+	/*
+	font-size: 28px;
+    line-height: 30px;
+    margin-left: 91px;
+    padding-top: 34px;
+    text-align: center;
+    */
+    font-size: 25px;
+    line-height: 30px;
+    margin-left: 91px;
+    padding-top: 20px;
+    text-align: center;
+    
 }
 .aui #breadcrumbs{
 	margin-bottom: 0px;
@@ -175,13 +217,66 @@
 	 padding: 0em 0em;
 }
 .textGrid{
-	padding-left:3px;
-	padding-right:3px;
+	padding-left:4px;
+	padding-right:4px;
+
 }
 .k-detail-row{
 	
 	border-top:1px solid  #FFFCF2;
 	
 }
+.aui .ui-accordion-content{
+	/*height:500px;*/
+}
+.aui .hasChild{
+	display:none;
+}
+.aui .kpi_code{
+	display:none;
+}	
+.textNumber{
+	text-align:right;
+}
+.gridTable{
+	height:auto;
+}
+.btnCommintInline{
+	display:inline;
+	cursor:pointer;
+	font-size: 17px;
+	color:gray;
+	margin-left: 5px;
+}
 
-	
+.aui h1, .aui h2, .aui h3{
+	line-height: 18px;
+}
+
+
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 0px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 0px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 0px;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 0px;
+}
+.ui-dialog .ui-dialog-content{
+	padding: 0px;
+}
+.ui-dialog .ui-dialog-buttonpane{
+	padding: 0px;
+}
+#dialog-comment{
+	display:none;
+}
+
+

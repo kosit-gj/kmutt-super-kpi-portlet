@@ -1,0 +1,189 @@
+#colHead {
+	background: #e2b2ae none repeat scroll 0 0;
+   /*
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 5px;
+    text-align: center;
+    z-index: 0;
+    */
+    border-radius: 10px;
+    margin-top: 8px;
+    padding: 1px;
+    text-align: center;
+    z-index: 0;
+    
+    
+}
+
+#doughnut {
+	z-index:-1;
+	position:absolute;
+	top:-40px;
+	margin-left:-40px;
+}
+#subSKdataArea{
+	padding-left:20px;
+}
+#Content{
+
+	
+	left: -5px;
+    margin-left: 0;
+    margin-top: 0;
+    position: relative;
+}
+#Content .panel {
+	
+	background: #fff none repeat scroll 0 0;
+    border: 3px solid #00b456;
+    float: left;
+    height: 320px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 384px;
+    z-index: 0;
+}
+
+#Content .panel .page {
+ 	float:left;
+	height:54px;
+	width:130px;
+	background:linear-gradient(#ececec, #d3d3d3);
+	margin-top:10px;
+	margin-left:10px;
+}
+
+#Content .panel .page .pageleft {
+ 	float:left;
+ 	height:64px;
+	width:64px;
+}
+
+#Content .panel .page .pageright {
+ 	float:right;
+ 	height:64px;
+	width:64px;
+}
+
+#pagecontent {
+	/*
+ 	text-align:center;
+ 	font-weight:bold;
+ 	text-color:#405f7f;
+ 	margin-top:10px;
+ 	*/
+	font-size: large;
+    font-weight: bold;
+    left: 40px;
+    margin-top: 5px;
+    position: relative;
+    text-align: center;
+    
+}
+
+#Content .panel .panelTitleChart {
+	
+	background: #d4d4d4 none repeat scroll 0 0;
+    font-weight: bold;
+    height: 60px;
+    padding: 5px;
+    text-align: center;
+    word-wrap: break-word;
+    
+}
+.donutSub{
+
+    
+    height: 100px;
+    position: relative;
+    top: -16px;
+    width: 148px;
+    z-index: 0;
+    left: 0px;
+    
+}
+	.barchart{
+		width:350px;
+		height:186px;
+		margin-top: -20px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.bulletbar{
+		float:right;
+		margin-top:10px;
+		padding-right:10px;
+		width:215px;
+		height:74px;
+		/*background: rgba(0, 0, 0, 0) linear-gradient(#ececec, #d3d3d3) repeat scroll 0 0;*/
+	}
+	.bulletbar_result{
+	
+	color: blue;
+    font-size: 18px;
+    font-weight: bold;
+    left: 215px;
+    position: relative;
+    top: -24px;
+    width: 100px;
+	
+	}
+	.panel_weight{
+	color: blue;
+    font-size: 18px;
+    font-weight: bold;
+    
+	}
+	
+	
+	
+	
+	.prevvGolds{
+	
+	border: 1px solid;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    float: left;
+    font-size: 25px;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 14px;
+    width: 50px;
+    
+	}
+	.icon-prev{
+	
+	position: relative;
+    top: 13px;
+    
+	}
+	.nextGolds{
+	
+	border: 1px solid;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    float: right;
+    font-size: 25px;
+    height: 50px;
+    margin-right: 5px;
+    margin-top: 14px;
+    width: 50px;
+    	
+	}
+	.icon-next{
+	position: relative;
+    top: 13px;
+	}
+	
+	.goldTitleContent{
+		color:bule;
+		width: 895px;
+		float:left;
+	}
+	
+	

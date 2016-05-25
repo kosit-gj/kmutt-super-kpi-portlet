@@ -34,6 +34,7 @@ public class SupperKPIs extends MVCPortlet {
 	  String data4 = "";
 	  String dataMonth="";
 	  Object dataObject="";
+	  String dataObjectHTML="";
 	  String locationTypeHTML="";
 	  String LandlordGroupHTML="";
 	  String BrandHTML="";
@@ -163,16 +164,86 @@ public class SupperKPIs extends MVCPortlet {
 	            }
 	            dataObject=obj_json;
 	            conn.close();
-	        }
+	        } 
 	      }
 	    }catch(Exception e) {
 	      e.printStackTrace();
 	      logger.error("erorr"+e);
 	    }
 	 }
-  
+	public void selectHTML(String query,String columns) {
+
+	    try{
+	      Context ctx = new InitialContext();
+	      if(ctx == null ) 
+	          throw new Exception("Boom - No Context");
+
+	      DataSource ds = 
+	            (DataSource)ctx.lookup(
+	               "java:comp/env/jdbc/jndiDB");
+
+	      if (ds != null) {
+	        Connection conn = ds.getConnection();
+	              
+	        if(conn != null)  {
+	        	dataObjectHTML="";
+	            Statement stmt = conn.createStatement();
+	            ResultSet rst = 
+	                stmt.executeQuery(query);
+	            
+	            
+	            	
+	            rst.next();
+	            	
+	            dataObjectHTML=rst.getString(Integer.parseInt(columns));
+	            		
+	            	
+	            	
+
+	            }
+	            dataObjectHTML=dataObjectHTML;
+	            conn.close();
+	        
+	      }
+	    }catch(Exception e) {
+	      e.printStackTrace();
+	      logger.error("erorr"+e);
+	    }
+	 }
+	
+	public void update(String query) { 
+		System.out.println("\nNow!! Method queryDwh() is running.\n"
+				+ "\nString query: "+query+"\n"); 
+	    try{
+	      Context ctx = new InitialContext();
+	      if(ctx == null ) 
+	          throw new Exception("Boom - No Context");
+
+	      DataSource ds = 
+	            (DataSource)ctx.lookup(
+	               "java:comp/env/jdbc/jndiDB");
+
+	      if (ds != null) {
+	        Connection conn = ds.getConnection();
+	              
+	        if(conn != null)  {
+	        	
+	        	
+	        	dataObject="";
+	            Statement stmt = conn.createStatement();
+	            stmt.executeUpdate(query);
+	            dataObject="[\"success\"]"; 
+	            
+	            conn.close();
+	        }
+	      }
+	    }catch(Exception e) {
+	      e.printStackTrace();
+	      logger.error("\n --erorr--> "+e+"\n");
+	    }
+	 }
 	
 	public Object getData() { return dataObject;}
-	
+	public String getDataHTML() { return dataObjectHTML;}
 	
 }

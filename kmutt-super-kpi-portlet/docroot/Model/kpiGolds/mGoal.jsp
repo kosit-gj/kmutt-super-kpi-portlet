@@ -18,8 +18,9 @@ String query="";
 
 query+="select kpi_group_id, kpi_group_name, (sum(percent_wavg)/sum(kpi_weight))*100 ";
 query+=" from kpi_result";
-query+=" where month_id = "+paramMonth+"";
+query+=" where month_id  = "+paramMonth+"";
 query+=" and org_id = "+paramOrg+"";
+query+=" and parent_kpi_id is null";
 query+=" group by kpi_group_id, kpi_group_name";
 
 

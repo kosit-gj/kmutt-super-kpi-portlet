@@ -6,14 +6,20 @@
 		<portlet id="abc" />
 		<portlet id="my-hello-world"></portlet>
 		<portlet id="test-ajax"></portlet>
+		<!-- 
+		<portlet id="supper-kpi-per"></portlet>
+		 -->
 	</category>
-	
+
 	<category name="Supper KPIs">
 		<portlet id="supper-kp-is"></portlet>
-		<portlet id="test-ajax"></portlet>
+		<!-- <portlet id="test-ajax"></portlet> -->
 		<portlet id="portlet-kpi1_1"></portlet>
 		<portlet id="test-portlet2"></portlet>
-	</category>
+		<!-- 
+		<portlet id="super-kpis-by-perspective"></portlet>
+		 -->
+	</category> 
 
  
 
