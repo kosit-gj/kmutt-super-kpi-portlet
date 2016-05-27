@@ -95,7 +95,7 @@ $(document).ready(function(){
 	                	  [["1","Goal 1: New Approach to Learning","1","SK 1-Social Change Agent 5.00","86.200000"]]
 	                	  */
 	                	  
-	                	  htmlParam+="<div class='span4'>";
+	                	  htmlParam+="<div class='mobile span4'>";
 	                		  htmlParam+="<div class='row-fluid'>";
 	                			  htmlParam+="<div class='span6  boxGraph' >";
 	             				
@@ -278,6 +278,10 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$("#btnSubmit").click();
 	},1000);
+	
+	$(window).on("orientationchange",function(){
+		$("#btnSubmit").click();
+	});
 	
   //search data for data end
 	

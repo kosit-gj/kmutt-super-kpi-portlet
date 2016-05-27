@@ -35,7 +35,7 @@
 
 <style>
 #spanHead{
-	width:1012px;
+	/*width:1012px;*/
 }
 </style>
 <!-- header -->
@@ -64,7 +64,7 @@
 				 -->
 			</div>
 		</div>
-		<div class="span2"> 
+		<div class="span2"  id='spanDonut'> 
 			<div id="donutChart-<%=sk_id%>-Sub" class='donutSub'></div>
 		</div>
 	</div>

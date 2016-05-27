@@ -63,7 +63,7 @@
     padding: 5px;
     width: 323px;
     text-align:right;
-    font-size: 15px;
+    font-size: 13px;
 }
 .aui .subTitleGold{
 	background:#eaeaea;
@@ -166,7 +166,7 @@
 	boder:1px solid red;
 	float:left;
 	text-align: left;
-	
+	margin-left: 5px;
 }
 .aui .paramArea .paramSubmitArea{
 	

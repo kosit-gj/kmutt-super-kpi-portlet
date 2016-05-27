@@ -6,6 +6,15 @@
 <%@page import="com.test.*" %>    
 
 <portlet:defineObjects />
+<%
+boolean role= request.isUserInRole("Administrator");
+if(role){
+	out.print("<input type='hidden' name='checkRole' id='checkRole' value='Admin'>");
+}else{
+	out.print("<input type='hidden' name='checkRole' id='checkRole' value='user'>");
+}
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,56 +79,282 @@ padding: 0.5px 1px;
 .aui p {
     margin: 2px;
 }
+
+
+
+
+/* Large desktop #####################################*/
+    @media (min-width: 1200px) { 
+    
+    	.aui .row-fluid .span4 {
+		    width: 33.33%;
+		}
+		/*
+		.aui body{
+		background:red;
+		}
+		*/
+		
+     }
+     
+     /*  desktop #########################################*/
+    @media (min-width: 980px) and (max-width: 1199px) {
+    
+    	
+		
+		/*
+		
+		.aui body{
+		background:#cccccc;
+		}
+		
+		*/
+		
+     }
+     
+    /* Portrait tablet to landscape and desktop ########################################3*/
+    @media (min-width: 768px) and (max-width: 979px) {
+    	.aui .portlet-body{
+			
+		}
+		
+		/*parameter start*/
+		.aui .paramArea .paramYearArea .yearLabel{
+		width: 29px;
+		}
+		.aui .paramArea .paramYearArea{
+		width: 134px;
+		}
+		.aui .paramArea .paramOrgArea{
+		width: 306px;
+		}
+			
+		/*parameter end*/
+		
+		
+		/*title content start*/
+		.aui .subTitleGold .subTitleLeft{
+		width: 85%;
+		}
+		.mainText {
+		    font-size: 18px;
+		    line-height: 18px;
+		    margin-left: 0;
+		    padding-top: 41px;
+		    text-align: center;
+		}
+		.aui h4 {
+		    font-size: 16px;
+		}
+
+		/*title content end*/
+		/*
+		.aui body{
+		background:yellow;
+		}
+		*/
+     }
+     
+    /* Landscape phone to portrait tablet ############################################*/
+    @media (max-width: 767px) { 
+   	 	.aui .portlet-body{
+			
+		}
+		
+		/*parameter start*/
+		
+		
+		.aui .paramOrgArea .paramOrg{
+		width: 200px;
+		}
+		.aui .paramArea .paramOrgArea{
+		width: 100%;
+		}
+		.aui .paramArea .paramOrgArea .OrgLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramMonthArea{
+		clear:both;
+		}
+		.aui .paramArea .paramMonthArea .monthLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramYearArea .yearLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramSubmitArea{
+		margin-left: 72px;
+		clear: both;
+		}
+		
+		.aui h4{
+		font-size: 14.5px;
+		}
+		
+		
+		
+		/*parameter end*/
+		
+		
+		/*title content start*/
+		.mainText{
+		font-size: 16px;
+	    line-height: 19px;
+	    margin-left: 18px;
+	    padding-top: 25px;
+	    text-align: center;
+		}
+		
+		.aui .subTitleGold .subTitleLeft{
+		width: 85%;
+		}
+		/*title content end*/
+		
+		
+		/*
+		.aui body{
+		background:red;
+		}
+		*/
+     }
+     
+    /* Landscape phones and down ###############################################*/
+    @media (max-width: 480px) { 
+    	.aui .portlet-body{
+			
+		}
+		
+		
+		/*parameter start*/
+		
+		
+		.aui .paramOrgArea .paramOrg{
+		width: 200px;
+		}
+		.aui .paramArea .paramOrgArea{
+		width: 100%;
+		}
+		.aui .paramArea .paramOrgArea .OrgLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramMonthArea .monthLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramYearArea .yearLabel{
+		width: 60px;
+		}
+		.aui .paramArea .paramSubmitArea{
+		margin-left: 72px;
+		clear: both;
+		}
+		
+		.aui h4{
+		font-size: 14.5px;
+		}
+		
+		
+		
+		/*parameter end*/
+		
+		/*title content start*/
+		.subTitleGold {
+		    background: #eaeaea none repeat scroll 0 0;
+		    color: #af7817;
+		    display: none;
+		    height: 50px;
+		    padding: 5px;
+		    position: relative;
+		}
+		.aui .subTitleGold .subTitleLeft{
+			width: 95%;
+			position: static;
+		}
+		.aui .subTitleGold .subTitleRight{
+			float: left;
+		    left: 0;
+		    padding: 5px;
+		    position: relative;
+		    text-align: left;
+		    top: -13px;
+		    width: 95%;
+		}
+		.aui .subTitleGold{
+			height: 50px;
+		}
+		.aui h3.titleKpi{
+			height: 400px;
+		}
+		
+		.mainText{
+		
+		background: #dddddd none repeat scroll 0 0;
+	    font-size: 14px;
+	    line-height: 18px;
+	    margin-left: 0;
+	    margin-top: 178px;
+	    padding: 5px;
+	    text-align: center;
+		
+		}
+		.aui h3.titleKpi{
+		height: 285px;
+		}
+		
+		
+		.aui .titleGold .titleLeft{
+		
+		float: left;
+	    margin-left: 0px;
+		padding:0px;
+	    position: static;
+	    width: 100%;
+	    font-size: 13px;
+	    
+		}
+		
+		.aui .titleGold .titleRight{
+		float: left;
+	    font-size: 13px;
+		padding:0px;
+	    text-align: left;
+	    top: 5px;
+	    width: 100%;
+		}
+		/*title content end*/
+		/*image start*/
+		
+		
+		
+		.picturePerson{
+		float: right;
+	    position: relative;
+	    right: 73px;
+	    top: 5px;
+	    width: 173px;
+		}
+		/*image end*/
+		
+		
+		
+		/*
+		.aui body{
+		background:yellow;
+		}
+		*/
+     }
+     
+    
+    
   </style>
   
 </head>
 <body>
 
         
-<!-- 
-<form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                This is my textarea to be replaced with CKEditor.
-            </textarea>
-            <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-            </script>
-        </form>
-        
-<liferay-ui:input-editor />
-<input name="<portlet:namespace />htmlCodeFromEditorPlacedHere" id="editorTest" type="hidden" value="" />
-
-    <form name="<portlet:namespace />addContent">
-    <liferay-ui:input-editor toolbarSet="liferay-article" initMethod="initEditor" />  
-  
-    <input type="button" value="Save" onClick="saveData()" />
-    </form>
-
- -->
 
 
-<script type="text/javascript">
 
 
-function initEditor(){
-	var contentValue;
-	var contentValue="";
-	/* var contentLocale=document.getElementById("contentText").value;
-	Above statement will set the contentValue to the value of HTML input variable named 'contentText'. Useful in scenario where data comes from database/java class from server. */
-	return  contentValue;
-	}
-	
-function saveData()
-{
-var x = window.<portlet:namespace />editor.getHTML();
-alert(x);
-//pass x as query string to submit url or set to an html input element to access it on server side.
-} 
-   
-            
-</script>
 
 
 <div id="dialog-comment" title="Commment" >
@@ -173,7 +408,7 @@ alert(x);
 			</div>
 			<div class='OrgParam' >
 			
-				<select style='width:342px;' id='orgParam'>
+				<select style='width:200px;' id='orgParam'>
 				<!-- 
 					<option value='1'>หน่วยงานที่1</option>
 					<option value='2'>หน่วยงานที่2</option>

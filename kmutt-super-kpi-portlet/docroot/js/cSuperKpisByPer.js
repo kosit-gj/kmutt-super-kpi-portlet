@@ -217,7 +217,7 @@ function detailInit(e) {
 				var textComment;
 				if(indexEntry[14]==null || indexEntry[14]==""){
 					//alert("data is null");
-					if(admin==1){
+					if($("#checkRole").val().trim()=="Admin"){
 						textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[13]+"'></i>";
 					}else{
 						textComment="";
@@ -560,7 +560,7 @@ getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID){
 						var textComment;
 						if(indexEntry[14]==null || indexEntry[14]==""){
 							//alert("data is null");
-							if(admin==1){
+							if($("#checkRole").val().trim()=="Admin"){
 								textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[13]+"'></i>";
 							}else{
 								textComment="";

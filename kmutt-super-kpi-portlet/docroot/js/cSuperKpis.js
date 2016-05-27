@@ -287,7 +287,7 @@ function detailInit(e) {
 
 				if(indexEntry[13]==null || indexEntry[13]==""){
 					//alert("data is null");
-					if(admin==1){
+					if($("#checkRole").val().trim()=="Admin"){
 						textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[11]+"'></i>";
 					}else{
 						textComment="";
@@ -720,7 +720,7 @@ getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
 						var textComment;
 						if(indexEntry[13]==null || indexEntry[13]==""){
 							//alert("data is null");
-							if(admin==1){
+							if($("#checkRole").val().trim()=="Admin"){
 								textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[11]+"'></i>";
 							}else{
 								textComment="";

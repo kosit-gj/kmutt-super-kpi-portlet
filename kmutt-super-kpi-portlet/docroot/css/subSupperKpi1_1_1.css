@@ -182,8 +182,27 @@
 	
 	.goldTitleContent{
 		color:bule;
-		width: 895px;
+		width: 860px;
 		float:left;
+	}
+	#spanDonut{
+	
+	}
+	.pagecontentSub{
+	
+	z-index: 444; 
+	left: -20px; 
+	width: 86px;
+	
+	font-size: large;
+    font-weight: bold;
+    margin-top: 5px;
+    position: relative;
+    text-align: center;
+	
+	}
+	#pagecontentSub{
+	width: 85px;
 	}
 	
 	

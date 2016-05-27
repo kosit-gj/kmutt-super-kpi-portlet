@@ -21,7 +21,6 @@
 	
 	background: #d2ddeb none repeat scroll 0 0;
     border: 5px solid #ff0;
-    
     border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
@@ -55,9 +54,25 @@
     top: -10px;
     width: 200px;
 }
+
 .aui .paramYearArea{
-	
+	/*border:1px solid #cccccc;*/
+	float: left;
 }
+.aui .paramMonthArea{
+	/*border:1px solid #cccccc;*/
+	float: left;
+}
+.aui .paramOrgArea{
+	/*border:1px solid #cccccc;*/
+	float: left;
+}
+.aui .btnSubmitArea{
+	/*border:1px solid #cccccc;*/
+	float: left;
+}
+
+
 .aui .paramYearArea .paramYearText{
 	float:left;
 	width:100px;
@@ -92,7 +107,7 @@
 }
 .aui .paramOrgArea .paramOrg{
 	float:left;
-	width:353px;
+	width:205px;
 }
 .aui .btnSubmitArea{
 	
@@ -139,10 +154,9 @@
     left: 18px;
     position: relative;
     */
-     left: 100px;
+     left: 97px;
     position: relative;
     top: -45px;
-    width: 6px;
     z-index: 999;
 }
 .areaPrev{

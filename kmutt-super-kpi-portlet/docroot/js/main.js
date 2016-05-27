@@ -1,16 +1,70 @@
 //check role here start
-	var user =$(".user-full-name").text().trim();
-	var admin="";
-	//alert(user);
-	//Kosit Aromsava
-	//Joe Bloggs
-	if("Kosit Aromsava"==user){
-		admin="1";
-	}else{
-		admin="0";
-	}
-	//check role here end
+/*
+var user =$(".user-full-name").text().trim();
+var admin="";
+//alert(user);
+//Kosit Aromsava
+//Joe Bloggs
+if("Kosit Aromsava"==user){
+	admin="1";
+}else{
+	admin="0";
+}
+*/
+//check role here end
 var theme=["#d2ddeb","#c7a1e3","#e4b4af","#d2d2d2","#d5e2bc","#f6d2b4","#cccccc","#cccccc","#cccccc","#cccccc","#cccccc"];
+
+
+
+var responsiveFn=function(){
+	var device;
+
+	var widnDowWidth=$( window ).width();
+	
+	if(widnDowWidth<=480){
+		/* Landscape phones and down */
+	    //max-width: 480px
+		device="landscapePhonesAndDown";
+		
+		
+	}else if(widnDowWidth<=767){
+		/* Landscape phone to portrait tablet */
+	    //media max-width: 767px
+		device="landscapePhoneToPortraitTablet";
+		
+	}else if(widnDowWidth>=768 && widnDowWidth<=979){
+		/* Portrait tablet to landscape and desktop */
+	    //media (min-width: 768px) and (max-width: 979px) 
+		device="PortraitTabletTolandscapeAndDesktop";
+		
+		
+	}else if(widnDowWidth>=980 && widnDowWidth<=1199){
+		/*  desktop */
+	    //@media (min-width: 980px) and (max-width: 1199px) 
+		device="desktop";
+		
+		
+	}else if(widnDowWidth>=1200){
+		/* Large desktop */
+	    //@media (min-width: 1200px)
+		device="largeDesktop";
+		
+		
+	}
+	return device;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+};
+//alert(responsiveFn());
 
 var getRangeThreholdFn = function(paramYear){
 	var rangeThrehold="";
@@ -166,8 +220,8 @@ var modalAddCOmmentFn=function(kpiID){
 		    $( "#dialog-comment" ).dialog({
 		    	
 		        resizable: true,
-		        height:395,
-		        width:700,
+		        height:350,
+		        width:350,
 		        modal: true,
 		        buttons: {
 		          "Save": function() {
@@ -196,8 +250,8 @@ var modalAddCOmmentFn=function(kpiID){
 			    $( "#dialog-comment" ).dialog({
 			    	
 			        resizable: true,
-			        height:385,
-			        width:700,
+			        /*height:350,*/
+			        width:350,
 			        modal: true
 			       
 			      });
@@ -506,6 +560,8 @@ function getImageByOrg(paramOrg,paramType){
 $(document).ready(function(){
 	$(".powered-by").remove();
 	$("#breadcrumbs").remove();
+	
+
 	
 	
 	

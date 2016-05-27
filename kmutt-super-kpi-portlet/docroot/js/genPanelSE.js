@@ -91,14 +91,31 @@
 		});
 		
 	}
+	
 	function genChart(chart_id,objJsonData){
 		
+		var checkDevice=responsiveFn();
+		var widthGraph="";
+		var heightGraph="";
+		if(checkDevice=="landscapePhonesAndDown"){
+			widthGraph=255;
+			heightGraph=146;
+			
+		}else if(checkDevice=="landscapePhoneToPortraitTablet"){
+			
+			widthGraph=380;
+			heightGraph=195;
+			
+		}else{
+			widthGraph=350;
+			heightGraph=146;
+		}
 		
 		$(chart_id).insertFusionCharts({
 			type: 'column2d',
 	        renderAt: 'chart-container',
-	        width: '350',
-	        height: '146',
+	        width: widthGraph,
+	        height: heightGraph,
 	        dataFormat: 'json',
 	        dataSource: {
 	            "chart": {
@@ -131,12 +148,32 @@
 	function genBulletChart(chart_id,result){
 		
 		//alert(result);
+		
+		var checkDevice=responsiveFn();
+		var widthGraph="";
+		var heightGraph="";
+		if(checkDevice=="landscapePhonesAndDown"){
+			widthGraph=121;
+			heightGraph=0;
+			
+		}else if(checkDevice=="landscapePhoneToPortraitTablet"){
+			
+			widthGraph=370;
+			heightGraph=0;
+			
+		}else{
+			widthGraph=210;
+			heightGraph=0;
+			
+		}
+		
+		
 
 		$(chart_id).insertFusionCharts({
 		        type: 'hbullet',
 		        renderAt: 'chart-container',
-		        width: '210',
-		        height: '55',
+		        width: widthGraph,
+		        height: '54',
 		        dataFormat: 'json',
 		        dataSource: {
 		            "chart": {
@@ -287,7 +324,7 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 		 content+="</a>  ";
 		 content+="</div>  ";
 		 if(indexEntry[6]==1){
-		 content+="<div class=\"span4\" id=\"pagecontent\" style='z-index: 444; left: -20px; width: 86px;'>  ";
+		 content+="<div class=\"span4 pagecontentSub\" id=\"pagecontentSub\" >   ";
 		 }else{
 		 content+="<div class=\"span4\" id=\"pagecontent\"'>  ";	 
 		 }
@@ -394,6 +431,8 @@ var callSubKPIFn=function(paramYear,paramMonth,paramOrg,paramSK,score,fillColor,
 
 	
 };	
+
+
 
 
 

@@ -219,7 +219,7 @@
 		<css-class-wrapper>supper-kpi-per-portlet</css-class-wrapper>
 	</portlet>
 	 --> 
-	    
+	      
 	<role-mapper>       
 		<role-name>administrator</role-name>            
 		<role-link>Administrator</role-link>        
@@ -238,7 +238,7 @@
 	</role-mapper>     
 </liferay-portlet-app>   
  
-                                          
-                                                                                                                                                                                                                                                                                           
-                                                                                                                                    
-                       
+                                                          
+                                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                     
+                        

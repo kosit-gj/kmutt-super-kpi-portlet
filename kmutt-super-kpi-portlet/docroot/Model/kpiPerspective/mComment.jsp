@@ -21,6 +21,10 @@ out.print("kpiID="+kpiID);
 /*
 String query="select * from kpi_result";
 */
+
+
+
+
 if(action.equals("getDataComment")){
 	
 	String query="";
@@ -45,6 +49,29 @@ if(action.equals("getDataComment")){
 	jndi.update(query);
 	out.print(jndi.getData());
 }
+
+/*
+if(action.equals("getDataComment")){
+	
+	String query="";
+	query+="select kpi_comment from kpi";
+	query+=" where kpi_id='"+kpiID+"'"; 
+	
+	jndi.selectHTML(query, "1");
+	out.print(jndi.getDataHTML());
+	
+}else if(action.equals("updateComent")){
+	String query="";
+	query+="update kpi set kpi_comment='"+editor_data+"'";
+	query+=" where kpi_id='"+kpiID+"'"; 
+	
+	//jndi.selectByIndexDwh(query, "1,2");
+	jndi.update(query);
+	out.print(jndi.getData());
+}
+
+*/
+
 //example
 //
   
