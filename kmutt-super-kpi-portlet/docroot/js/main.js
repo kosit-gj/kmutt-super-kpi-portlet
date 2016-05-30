@@ -203,7 +203,7 @@ var modalAddCOmmentFn=function(kpiID){
 				data="";
 				
 			}
-			if(admin==1){
+			if($("#checkRole").val().trim()=="Admin"){
 			setTimeout(function(){
 
 				$("#CommentArea").html("<textarea name=\"editor1\" id=\"editor1\" rows=\"9\" cols=\"85\">"+data+"</textarea>");
@@ -358,6 +358,17 @@ var paramMonthFiscalFn=function(month_current,paramYear){
 
 var paramOrgFn=function(){
 	
+	
+	
+	var checkDevice=responsiveFn();
+	var widthGraph="";
+	
+	if(checkDevice=="largeDesktop"){
+		widthGraph=300;
+	}else{
+		widthGraph=200;
+	}
+	
 	var htmlParam="";
 		$.ajax({
 			url:"/kmutt-super-kpi-portlet/Model/paramOrg.jsp",
@@ -372,7 +383,9 @@ var paramOrgFn=function(){
                 	
                 	htmlParam+="<option value='"+indexEntry[0]+"'>"+indexEntry[1]+"</option>";
                 });
-                $("#orgParam").html(htmlParam);
+                
+                $("#orgParam").html(htmlParam).css({"width":widthGraph+"px"});
+                
                 $("#orgParam").kendoDropDownList();
                 /*Logic program here.*/
 			}
@@ -562,10 +575,24 @@ $(document).ready(function(){
 	$("#breadcrumbs").remove();
 	
 
+	 
 	
 	
 	
+	$( document ).ajaxStart(function() {
+		var height=0;
+		height=$( window ).height();
+		height=(height/2);
+		//alert(height);
+		
+		$(".loading").css({"top":height+"px"}).show();
+		$(".aui .portlet-content, .aui .portlet-minimized .portlet-content-container").css({"opacity":"0.5"});
+	});
 	
+	$( document ).ajaxStop(function() {
+		$(".loading").hide();
+		$(".aui .portlet-content, .aui .portlet-minimized .portlet-content-container").css({"opacity":"1"});
+	});
 	
 	
 });

@@ -11,8 +11,9 @@ var pagingGoldKpiFn=function(data,sk_id){
 		$(".nextGolds").on("click",function(){
 			
 			if(endGold==pointCurrentGold){
-				pointCurrentGold=endGold;
-				return false;
+				//pointCurrentGold=endGold;
+				pointCurrentGold=0;
+				//return false;
 			}else{
 				pointCurrentGold+=1;
 			}
@@ -26,8 +27,9 @@ var pagingGoldKpiFn=function(data,sk_id){
 		$(".prevvGolds").on("click",function(){
 			
 			if(pointCurrentGold==0){
-				pointCurrentGold=0;
-				return false;
+				//pointCurrentGold=0;
+				pointCurrentGold=endGold;
+				//return false;
 			}else{
 				pointCurrentGold-=1;
 			}
@@ -101,9 +103,9 @@ $(document).ready(function(){
 	             				
 	                				htmlParam+="<div style='border: 5px solid "+thresholdColor+"; background:"+theme[index]+"' class='contentGraph' id='graph-"+indexEntry[0]+"' style= border: 5px solid "+thresholdColor+";>";
 	                				 htmlParam+="<center>";
-	                				 htmlParam+=""+indexEntry[1]+" <br>";
-	                				  htmlParam+="- - - - - - - - - - - - - - <br>";
-	                				  htmlParam+=""+indexEntry[3]+" <br>";
+	                				 htmlParam+="<p style='margin-bottom:5px; padding-bottom:5px;' class='boxGoldsTop'>"+indexEntry[1]+" </p>";
+	                				 // htmlParam+="- - - - - - - - - - - - - - <br>";
+	                				  htmlParam+="<p style='margin-bottom:0px;' class='boxGoldsBottom'>"+indexEntry[3]+" </p>";
 	                				  htmlParam+="<span style='display:none;' id='result-"+indexEntry[0]+"'>"+parseFloat(indexEntry[4]).toFixed(2)+"%</span>";
 	                				  htmlParam+=" <span style='display:none;' id='fillColor-"+indexEntry[0]+"'>"+thresholdColor+"</span>";
 		                			  htmlParam+=" <span style='display:none;' id='foregroundColorParam-"+indexEntry[0]+"'>"+theme[index]+"</span>";

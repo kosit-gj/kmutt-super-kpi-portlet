@@ -134,6 +134,7 @@
 	                "showYAxisValues":"0",
 	                "placeValuesInside": "0",
 	                "valueFontColor": "#000000",
+	          
 	            },            
 	            "data": objJsonData
 		    }
@@ -190,6 +191,8 @@
 		                "setAdaptiveYMin": "1",
 		                "showTickMarks":"0",
 		                "showTickValues":"0",
+		                "plotfillpercent": "50",
+		                "targetFillPercent": "100"
 		            },
 		            "colorRange": {
 		            	/*
@@ -227,6 +230,21 @@
 		    });
 
 		}
+	var setBorderBox = function(id,paramYear,dataScore){
+		
+		/*get color from thershold start*/
+		if(parseInt(dataScore).toFixed(2)=="NaN"){
+			dataScore=0;
+		}else{
+			dataScore=parseInt(dataScore).toFixed(2);
+		}
+		var dataThreshold = getThresholdFn(paramYear,dataScore);
+		var colorThreshold=dataThreshold[0][4];
+		/*get color from thershold end*/
+		
+		
+		$("#panel-"+id).css({"border-color":colorThreshold});
+	}
 	var createSubPanelKpi = function(id,data,dataParam){
 		//dataParam
 		//["1","SKPI1","ผลการสำรวจความคิดเห็นเกี่ยวกับประสบการณ์ ","2559","50.00","83.52","0"]
@@ -237,8 +255,8 @@
 			
 			//panel_9_title
 			//bullet_result_9
-			$("#panel_"+id+"_title").html(checkDataNotNull(data[4])+"%");
-			$("#bullet_result_"+id).html(checkDataNotNull(data[5])+"%");
+			$("#panel_"+id+"_title").html(checkDataNotNullAndPercentage(data[4]));
+			$("#bullet_result_"+id).html(checkDataNotNullAndPercentage(data[5]));
 			
 			 genBulletChart("#bullet_"+id,data[5]);
 			 /*
@@ -247,6 +265,7 @@
 			 alert(id);
 			 */
 			 genSubDataColumnChart(dataParam,data[0],"#chart_"+id);
+			 setBorderBox(id,dataParam[1],data[5]);
 			 
 		
 	};
@@ -257,8 +276,9 @@
 		
 		$("#next-"+id).click(function(){
 			if(end==pointCurrent){
-				pointCurrent=end;
-				return false;
+				//pointCurrent=end;
+				pointCurrent=0;
+				//return false;
 			}else{
 				pointCurrent+=1;
 			}
@@ -270,8 +290,9 @@
 		$("#prev-"+id).click(function(){
 			
 			if(pointCurrent==0){
-				pointCurrent=0;
-				return false;
+				//pointCurrent=0;
+				pointCurrent=end;
+				//return false;
 			}else{
 				pointCurrent-=1;
 			}
@@ -295,7 +316,7 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 			
 			weight_kpi="&nbsp;";
 		}else{
-			weight_kpi=indexEntry[4]+"%";
+			weight_kpi=checkDataNotNullAndPercentage(indexEntry[4]);
 			
 		}
 		//check null kpi result
@@ -306,11 +327,22 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 			kpi_result=indexEntry[5]+"%";
 			
 		}
+		
+		/*get color from thershold start*/
+		var dataScore="";
+		if(parseInt(kpi_result).toFixed(2)=="NaN"){
+			dataScore=0;
+		}else{
+			dataScore=parseInt(kpi_result).toFixed(2);
+		}
+		var dataThreshold = getThresholdFn(dataParam[1],dataScore);
+		var colorThreshold=dataThreshold[0][4];
+		/*get color from thershold end*/
 
 		var content = "";
 		//alert(indexEntry);
 		//alert(indexEntry[5]);
-		content+="<div class=\"panel\" id=\"panel-"+indexEntry[0]+"\">";  
+		content+="<div class=\"panel\" id=\"panel-"+indexEntry[0]+"\" style='border-color:"+colorThreshold+"' >";  
 		 content+="<div class=\"page\"> "; 
 		 content+="<div style=\"width:130px; height:5px; background:"+foregroundColorParam+";\" class=\"pagehead\"></div> "; 
 		 content+="<div class=\"row-fluid\">  ";
@@ -351,8 +383,10 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 		 content+="<div class=\"bulletbar_result\" id=\"bullet_result_"+indexEntry[0]+"\">"+kpi_result+"</div>  ";
 		 content+="<div class=\"barchart\" id=\"chart_"+indexEntry[0]+"\">columnChart</div>  ";
 		 content+="<div class=\"panelTitleChart\">  ";
-		 content+="<p id=\"panelTitleChart_"+indexEntry[0]+"\">";
-		 content+="<b>"+indexEntry[2]+"</b>";
+		 content+="<p style='margin: 0 0 0px;' id=\"panelTitleChart_"+indexEntry[0]+"\">";
+		 
+		 content+=""+indexEntry[2]+"<i id=\"kpiIDComment-"+indexEntry[0]+"\" style=\"color:green; font-size: 18px;\" class=\"icon-comment btnCommintInline\"></i>";
+		
 		 content+="</p>  ";
 		 content+="</div>  ";
 		 content+="</div>";

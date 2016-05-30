@@ -72,6 +72,7 @@
 	position: relative;
 	display:none;
 	height: 28px;
+	opacity: 0.8;
 }
 .aui .subTitleGold .subTitleLeft{
 	 float: left;
@@ -111,7 +112,7 @@
 	float:left;
 }
 .aui .paramArea .paramOrgArea{
-	width:440px;
+	width:415px;
 	boder:1px solid red;
 	float:left;
 
@@ -162,12 +163,16 @@
 	
 }
 .aui .paramArea .paramOrgArea .OrgParam{
-	width:70px;
+	width:200px;
 	boder:1px solid red;
 	float:left;
 	text-align: left;
 	margin-left: 5px;
 }
+#orgParam{
+	width:342px;	
+}
+
 .aui .paramArea .paramSubmitArea{
 	
 	padding:2px;
@@ -178,6 +183,7 @@
 	
 	padding:2px;
 	float:left;
+	margin-top: 1px;
 	/*padding-top:0px;*/
 	
 }

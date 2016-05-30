@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %> 
+<%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui"%>
 <%@ page import="javax.portlet.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -75,6 +76,21 @@ padding: 0.5px 1px;
 }
 .aui p {
     margin: 2px;
+}
+
+.aui ul, .aui ol {
+    margin: 0;
+    padding: 0;
+}
+
+.ui-accordion h3>.ui-state-default .ui-icon{
+	float: left;
+    margin-top: 5px;
+}
+
+.ui-accordion h3>.ui-state-active .ui-icon{
+	float: left;
+    margin-top: 5px;
 }
 
 
@@ -349,6 +365,14 @@ padding: 0.5px 1px;
   
 </head>
 <body>
+ <!-- LOOP LOADER -->
+<div class="loading">
+	<div class="content">
+    <div class="ball"></div>
+    <div class="ball1"></div>
+    </div>
+</div>
+<!-- LOOP LOADER -->
 
 <div id="dialog-comment" style="height:273px;" title="Commment" >
   <span id="CommentArea">
@@ -401,7 +425,7 @@ padding: 0.5px 1px;
 			</div>
 			<div class='OrgParam' >
 			
-				<select style='width:200px;' id='orgParam'>
+				<select  id='orgParam'>
 				<!-- 
 					<option value='1'>หน่วยงานที่1</option>
 					<option value='2'>หน่วยงานที่2</option>
@@ -433,7 +457,7 @@ padding: 0.5px 1px;
 			
 			<center>
 			<p>
-			รายการตัวชี้วัด(KMUTT Supporting KPIs) 
+			รายการตัวชี้วัด (KMUTT Supporting KPIs) 
 			</p>
 			<p>
 			ตามมิติของ Balanced Scorecard: BSC

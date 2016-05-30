@@ -107,7 +107,7 @@
 }
 .aui .paramOrgArea .paramOrg{
 	float:left;
-	width:205px;
+	width:310px;
 }
 .aui .btnSubmitArea{
 	
@@ -174,3 +174,11 @@
   opacity: 0.6;
   filter: alpha(opacity = 60);
 }
+.boxGoldsTop{
+	border-bottom:2px dashed ;
+}
+.boxGoldsBottom{
+		
+}
+
+

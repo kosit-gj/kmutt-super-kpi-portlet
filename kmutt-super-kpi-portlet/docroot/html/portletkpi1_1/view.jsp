@@ -366,6 +366,15 @@ if(permissionChecker.isOmniadmin())
 <!-- 
 <div class='container'>
  -->
+ <!-- LOOP LOADER -->
+<div class="loading">
+	<div class="content">
+    <div class="ball"></div>
+    <div class="ball1"></div>
+    </div>
+</div>
+<!-- LOOP LOADER -->
+
 	<div class='row-fluid '>
 	
 		<div class='span12 headerGraph'>
@@ -432,4 +441,32 @@ if(permissionChecker.isOmniadmin())
 
 <div class="clearfix"></div>
       
+      
+      
+      
+      
+    
 
+
+
+
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

@@ -91,6 +91,7 @@
     padding: 5px;
     text-align: center;
     word-wrap: break-word;
+    font-size: 14px;
     
 }
 .donutSub{
@@ -98,7 +99,7 @@
     
     height: 100px;
     position: relative;
-    top: -16px;
+    top: -20px;
     width: 148px;
     z-index: 0;
     left: 0px;
@@ -205,4 +206,10 @@
 	width: 85px;
 	}
 	
+	.btnCommintInline{
+		cursor: pointer;
+	    display: inline;
+	    font-size: 17px;
+	    margin-left: 5px;
+	}
 	

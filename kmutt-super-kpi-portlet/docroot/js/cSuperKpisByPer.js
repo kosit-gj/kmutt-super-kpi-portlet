@@ -448,9 +448,11 @@ getPerFn = function(paramOrg,paramMonth){
 			  //setTimeout(function(){
 				$("#accordion").remove();
 				$("#accordionArea").append("<div id=\"accordion\"></div>");	
-		
+				
 				$("#accordion").html(htmlCotent);
 				setTimeout(function(){
+					$("#accordion").multiAccordion({active: 1 });
+					/*
 					$("#accordion").accordion({
 						 collapsible:false,
 						 heightStyle: "content",
@@ -480,6 +482,8 @@ getPerFn = function(paramOrg,paramMonth){
 				            return false; // Cancels the default action
 				        }
 					});
+					*/
+					
 					$(".bgKpi").show();
 					
 					$(".getGroupID").click(function(){
@@ -681,7 +685,11 @@ paramOrgFn();
 $(document).ready(function(){
 	
 	
-	
+	$(window).on("orientationchange",function(){
+		
+		
+		
+	});
  
 	//$( "#accordion" ).accordion();
 	

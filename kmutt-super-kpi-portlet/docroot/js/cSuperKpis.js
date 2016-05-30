@@ -284,7 +284,20 @@ function detailInit(e) {
 				//alert(indexEntry[0]+"=="+indexEntry[1]+"=="+indexEntry[2]);
 				
 				var textComment;
-
+				//check comment on kpi table start
+				/*
+				$.ajax({
+					 url:'/kmutt-super-kpi-portlet/Model/kpiGolds/kpiGoldsListbyKpiGroup.jsp',
+					 type:'get',
+					dataType:'json',
+					data:{"paramKPIID":indexEntry[11]},
+					async:false,
+					success:function(data){
+						aler(data);
+					}
+				});
+				*/
+				//check comment on kpi table end
 				if(indexEntry[13]==null || indexEntry[13]==""){
 					//alert("data is null");
 					if($("#checkRole").val().trim()=="Admin"){
@@ -608,7 +621,10 @@ getGoldFn = function(paramOrg,paramMonth){
 		
 				$("#accordion").html(htmlCotent);
 				setTimeout(function(){
+					$("#accordion").multiAccordion({active: 1 });
+					/*
 					$("#accordion").accordion({
+						
 						
 						 collapsible:false,
 						 heightStyle: "content",
@@ -637,7 +653,9 @@ getGoldFn = function(paramOrg,paramMonth){
 
 				            return false; // Cancels the default action
 				        }
+				       
 					});
+					 */
 					$(".bgKpi").show();
 					
 					$(".getGroupID").click(function(){
@@ -840,8 +858,10 @@ var yearTHCurrent= parseInt(yearCurrent)+543;
 //Call Param by ajax end
 
 $(document).ready(function(){
-	
-	
+	//alert("hello1");
+	$(window).on("orientationchange",function(){
+		
+	});
 	paramYearFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
 	paramOrgFn();
 	//$( "#accordion" ).accordion();

@@ -30,6 +30,7 @@
 		<!-- 
 		<header-portlet-css>/js/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.min.css</header-portlet-css>
 		 --> 
+		 <header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-css>/css/supperKpi.css</header-portlet-css>
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.common.css</header-portlet-css> 
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.default.css</header-portlet-css> 
@@ -58,6 +59,11 @@
 		<footer-portlet-javascript>
 			/js/main.js  
 		</footer-portlet-javascript>
+		
+		<footer-portlet-javascript>
+			/js/jquery.multi-accordion-1.5.3.js
+		</footer-portlet-javascript>
+		
 		            		     
 		<footer-portlet-javascript>   
 			/js/cSuperKpis.js         
@@ -86,8 +92,11 @@
 		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
 		<header-portlet-css>/css/jquery.circliful.css</header-portlet-css> 
 		<header-portlet-css>/css/material-design-iconic-font.min.css</header-portlet-css> 
+		<header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-css>/css/superKpis1_1.css</header-portlet-css>
 		<header-portlet-css>/css/subSupperKpi1_1_1.css</header-portlet-css>
+		
+		
 		  
 		
 		<header-portlet-css>/fonts/font-awesome/css/font-awesome.min.css</header-portlet-css>
@@ -185,6 +194,10 @@
 		<footer-portlet-javascript> 
 			/../html/js/editor/ckeditor/ckeditor.js
 		</footer-portlet-javascript> 
+		
+		<footer-portlet-javascript>
+			/js/jquery.multi-accordion-1.5.3.js
+		</footer-portlet-javascript>
 		       		              
 		<footer-portlet-javascript>    
 			/js/cSuperKpisByPer.js         
@@ -232,13 +245,13 @@
 		<role-name>power-user</role-name> 
 		<role-link>Power User</role-link>
 	</role-mapper>
-	<role-mapper>    
+	<role-mapper>     
 		<role-name>user</role-name>
 		<role-link>User</role-link>
 	</role-mapper>     
 </liferay-portlet-app>   
- 
-                                                          
-                                                                                                                                                                                                                                                                                                                   
-                                                                                                                                                     
-                        
+       
+                                                                                          
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                       
+                         
