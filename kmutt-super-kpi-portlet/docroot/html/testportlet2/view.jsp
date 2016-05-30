@@ -83,12 +83,7 @@ padding: 0.5px 1px;
     padding: 0;
 }
 
-.ui-accordion h3>.ui-state-default .ui-icon{
-	float: left;
-    margin-top: 5px;
-}
-
-.ui-accordion h3>.ui-state-active .ui-icon{
+h3>.ui-icon{
 	float: left;
     margin-top: 5px;
 }

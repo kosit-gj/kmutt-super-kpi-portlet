@@ -3,10 +3,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
    
 <portlet:defineObjects />
+<%
+boolean role= request.isUserInRole("Administrator");
+if(role){
+	out.print("<input type='hidden' name='checkRole' id='checkRole' value='Admin'>");
+}else{
+	out.print("<input type='hidden' name='checkRole' id='checkRole' value='user'>");
+}
 
+%>
 <style>
 .aui .portlet-content, .aui .portlet-minimized .portlet-content-container{
 	padding: 0px 0px 0px;	
@@ -22,6 +30,11 @@ width: 33.33%;
     margin: 0;
     padding: 0;
 }
+
+.ui-dialog .ui-dialog-content{
+padding: 0.5px 1px;
+}
+
 
 
     /* Large desktop #####################################*/
@@ -374,6 +387,12 @@ if(permissionChecker.isOmniadmin())
     </div>
 </div>
 <!-- LOOP LOADER -->
+
+<div id="dialog-comment" title="Commment" >
+  <span id="CommentArea">	
+  </span>  		
+</div>
+
 
 	<div class='row-fluid '>
 	

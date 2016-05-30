@@ -23,7 +23,7 @@ String query="select * from kpi_result";
 */
 
 
-
+/*
 
 if(action.equals("getDataComment")){
 	
@@ -49,8 +49,9 @@ if(action.equals("getDataComment")){
 	jndi.update(query);
 	out.print(jndi.getData());
 }
+*/
 
-/*
+
 if(action.equals("getDataComment")){
 	
 	String query="";
@@ -70,7 +71,6 @@ if(action.equals("getDataComment")){
 	out.print(jndi.getData());
 }
 
-*/
 
 //example
 //

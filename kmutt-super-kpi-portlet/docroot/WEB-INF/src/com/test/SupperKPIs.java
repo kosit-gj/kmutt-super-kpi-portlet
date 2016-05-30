@@ -231,8 +231,14 @@ public class SupperKPIs extends MVCPortlet {
 	        	
 	        	dataObject="";
 	            Statement stmt = conn.createStatement();
-	            stmt.executeUpdate(query);
-	            dataObject="[\"success\"]"; 
+	            int count= stmt.executeUpdate(query);
+	            if(count>0){
+	            	dataObject="[\"success\"]"; 
+	            }else{
+	            	dataObject="[\"error\"]"; 
+	            }
+	            
+	            
 	            
 	            conn.close();
 	        }

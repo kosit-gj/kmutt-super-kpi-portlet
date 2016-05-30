@@ -182,6 +182,8 @@ var insertCommentFn = function(kpiID,editor_data,paramYear,paramMonth,paramOrg){
 					$("#kpiIDComment-"+kpiID).removeClass("icon-plus-sign").css({"color":"green"}).addClass("icon-info-sign");
 				}
 				$("#dialog-comment").dialog( "close" );
+			}else{
+				alert("ไม่สามารถบันทึกได้");
 			}
 		}
 	});
@@ -204,8 +206,9 @@ var modalAddCOmmentFn=function(kpiID){
 				
 			}
 			if($("#checkRole").val().trim()=="Admin"){
+			$("#CommentArea").hide();
 			setTimeout(function(){
-
+				
 				$("#CommentArea").html("<textarea name=\"editor1\" id=\"editor1\" rows=\"9\" cols=\"85\">"+data+"</textarea>");
 				//$(".ui-dialog-buttonpane").show();
 			    editor=CKEDITOR.replace( 'editor1', {
@@ -213,10 +216,10 @@ var modalAddCOmmentFn=function(kpiID){
 			    		[ ['Bold', 'Italic', 'Underline','-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink'],
 			    		['Outdent', 'Indent', '-', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']]
 			    });
-			    
+			    $("#CommentArea").show();
 			},500);
 		  //dialog start
-		    
+			
 		    $( "#dialog-comment" ).dialog({
 		    	
 		        resizable: true,

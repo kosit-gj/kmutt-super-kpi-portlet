@@ -95,8 +95,8 @@
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-css>/css/superKpis1_1.css</header-portlet-css>
 		<header-portlet-css>/css/subSupperKpi1_1_1.css</header-portlet-css>
-		
-		
+		 
+		  
 		  
 		
 		<header-portlet-css>/fonts/font-awesome/css/font-awesome.min.css</header-portlet-css>
@@ -110,7 +110,9 @@
 			
 		</footer-portlet-javascript>
 		   
-		               
+	     <footer-portlet-javascript> 
+			/../html/js/editor/ckeditor/ckeditor.js
+		</footer-portlet-javascript>             
 		      
 		  
 		<footer-portlet-javascript> 
@@ -251,7 +253,7 @@
 	</role-mapper>     
 </liferay-portlet-app>   
        
-                                                                                          
-                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                       
+                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                      
+                                                                                                                                                                             
                          

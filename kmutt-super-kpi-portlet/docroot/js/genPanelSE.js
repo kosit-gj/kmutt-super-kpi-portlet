@@ -249,9 +249,32 @@
 		//dataParam
 		//["1","SKPI1","ผลการสำรวจความคิดเห็นเกี่ยวกับประสบการณ์ ","2559","50.00","83.52","0"]
 
+		//check comment on kpi table start
+		$.ajax({
+			 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
+			 type:'get',
+			dataType:'html',
+			data:{"kpiID":id,"action":"getDataComment"},
+			async:false,
+			success:function(data){
+				//alert("["+data.trim()+"]");
+				if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+					//alert("data is null");
+					if($("#checkRole").val().trim()=="Admin"){
+						textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+id+"'></i>";
+					}else{
+						textComment="";
+					}
+				}else{
+						textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+id+"'></i>";
+				}
+			}
+		});
+		//check comment on kpi table end
 		
 			$("#panel_"+id+"_content").html(data[1]);
-			$("#panelTitleChart_"+id).html(data[2]);
+			
+			$("#panelTitleChart_"+id).html(data[2]+""+textComment);
 			
 			//panel_9_title
 			//bullet_result_9
@@ -266,6 +289,15 @@
 			 */
 			 genSubDataColumnChart(dataParam,data[0],"#chart_"+id);
 			 setBorderBox(id,dataParam[1],data[5]);
+			 
+			 
+			 
+			 $(".btnCommintInline").click(function(){
+					//alert(this.id);
+					var kpiID=this.id.split("-");
+					kpiID=kpiID[1];
+					modalAddCOmmentFn(kpiID);
+				});
 			 
 		
 	};
@@ -307,6 +339,30 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 	var panel_chart_count = data.length;
 	$("#Content").empty();
 	$.each(data,function(index,indexEntry){
+		
+		//check comment on kpi table start
+		$.ajax({
+			 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
+			 type:'get',
+			dataType:'html',
+			data:{"kpiID":indexEntry[0],"action":"getDataComment"},
+			async:false,
+			success:function(data){
+				//alert("["+data.trim()+"]");
+				if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+					//alert("data is null");
+					if($("#checkRole").val().trim()=="Admin"){
+						textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[0]+"'></i>";
+					}else{
+						textComment="";
+					}
+				}else{
+						textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[0]+"'></i>";
+				}
+			}
+		});
+		//check comment on kpi table end
+		
 		
 		var weight_kpi="";
 		var kpi_result="";
@@ -385,7 +441,7 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 		 content+="<div class=\"panelTitleChart\">  ";
 		 content+="<p style='margin: 0 0 0px;' id=\"panelTitleChart_"+indexEntry[0]+"\">";
 		 
-		 content+=""+indexEntry[2]+"<i id=\"kpiIDComment-"+indexEntry[0]+"\" style=\"color:green; font-size: 18px;\" class=\"icon-comment btnCommintInline\"></i>";
+		 content+=""+indexEntry[2]+""+textComment+"";
 		
 		 content+="</p>  ";
 		 content+="</div>  ";
@@ -413,6 +469,13 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 			 
 		 }
 		 //dataParam
+	});
+	
+	$(".btnCommintInline").click(function(){
+		//alert(this.id);
+		var kpiID=this.id.split("-");
+		kpiID=kpiID[1];
+		modalAddCOmmentFn(kpiID);
 	});
 	
 };

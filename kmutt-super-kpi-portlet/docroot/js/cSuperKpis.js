@@ -261,6 +261,7 @@ var genGridData = function(paramGridID){
 	*/
 
 	$(".k-grid-header .k-header").css({"padding":"5px 0","text-align":"center"});
+	
 	$(".btnCommintInline").click(function(){
 		//alert(this.id);
 		var kpiID=this.id.split("-");
@@ -284,30 +285,33 @@ function detailInit(e) {
 				//alert(indexEntry[0]+"=="+indexEntry[1]+"=="+indexEntry[2]);
 				
 				var textComment;
+				
+				
 				//check comment on kpi table start
-				/*
+				
 				$.ajax({
-					 url:'/kmutt-super-kpi-portlet/Model/kpiGolds/kpiGoldsListbyKpiGroup.jsp',
+					 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
 					 type:'get',
-					dataType:'json',
-					data:{"paramKPIID":indexEntry[11]},
+					dataType:'html',
+					data:{"paramKPIID":indexEntry[11],"action":"getDataComment"},
 					async:false,
 					success:function(data){
-						aler(data);
+						//alert(data.trim());
+						if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+							//alert("data is null");
+							if($("#checkRole").val().trim()=="Admin"){
+								textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[11]+"'></i>";
+							}else{
+								textComment="";
+							}
+						}else{
+								textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[11]+"'></i>";
+						}
 					}
 				});
-				*/
+			
 				//check comment on kpi table end
-				if(indexEntry[13]==null || indexEntry[13]==""){
-					//alert("data is null");
-					if($("#checkRole").val().trim()=="Admin"){
-						textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[11]+"'></i>";
-					}else{
-						textComment="";
-					}
-				}else{
-						textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[11]+"'></i>";
-				}
+				
 				
 				
 				if(index==0){
@@ -734,8 +738,34 @@ getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
                
 					$.each(data,function(index,indexEntry){
 						
-						//alert(indexEntry[13]);
+				
 						var textComment;
+						
+						//check comment on kpi table start
+						
+						$.ajax({
+							 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
+							 type:'get',
+							dataType:'html',
+							data:{"kpiID":indexEntry[11],"action":"getDataComment"},
+							async:false,
+							success:function(data){
+								//alert("["+data.trim()+"]");
+								if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+									//alert("data is null");
+									if($("#checkRole").val().trim()=="Admin"){
+										textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[11]+"'></i>";
+									}else{
+										textComment="";
+									}
+								}else{
+										textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[11]+"'></i>";
+								}
+							}
+						});
+					
+						//check comment on kpi table end
+						/*
 						if(indexEntry[13]==null || indexEntry[13]==""){
 							//alert("data is null");
 							if($("#checkRole").val().trim()=="Admin"){
@@ -746,20 +776,6 @@ getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
 						}else{
 								textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[11]+"'></i>";
 						}
-							/*
-							kpiLIstData+="<tr>"; 
-   							kpiLIstData+="<td>"+(index+1)+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[0]+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[2]+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[3]+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[4]+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[5]+"</td> ";
-   							kpiLIstData+="<td>"+indexEntry[6]+"%</td> ";
-   							kpiLIstData+="<td><div class='textPercentage'>80% </div><div class='sparkLine sparkLineArea'></div> </td>"; 
-   							kpiLIstData+="<td>5%</td> ";
-   							kpiLIstData+="<td>4.00%</td>"; 
-   							kpiLIstData+="<td>2015-10-28 03:00:31</td> ";
-							kpiLIstData+="</tr> ";
 							*/
 				
 						if(index==0){
@@ -767,33 +783,7 @@ getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
 						}else{
 							kpiLIstData+=",{";
 						}
-						/*
-						 *  
-						 * 0 kpi_name  
-						 * 1 calendar_type_name
-						 * 2 period_name
-						 * 3 target_value
-						 * 4 kpi_uom_name
-						 * 5 actual_value
-						 * 6 percent_actual_vs_target
-						 * 7 kpi_weight
-						 * 8 percent_wavg
-						 * 9 updated_dttm
-						 * 10 has_child
-						 * 
-						 *  
-							htmldataContent+="<th data-field=\"Field2\"><b>ชื่อตัวชี้วัด</b></th>";
-							htmldataContent+="<th data-field=\"Field3\"><b>ประเภทปี</b></th>";
-							htmldataContent+="<th data-field=\"Field4\"><b>ช่วงเวลา</b></th>";
-							htmldataContent+="<th data-field=\"Field5\"><b>เป้าหมาย</b></th>";
-							htmldataContent+="<th data-field=\"Field6\"><b>หน่วยวัด</b></th>";
-							htmldataContent+="<th data-field=\"Field7\"><b>ผลงาน</b></th>";
-							htmldataContent+="<th data-field=\"Field8\"><b>%ผลงานเทียบเป้าหมาย</b></th>";
-							htmldataContent+="<th data-field=\"Field9\"><b>น้ำหนัก</b></th>";
-							htmldataContent+="<th data-field=\"Field10\"><b>%เฉลี่ยถ่วงน้ำหนัก</b></th>";
-							htmldataContent+="<th data-field=\"Field11\"><b>ข้อมูลล่าสุด</b></th>";
-			
-						 */
+						
 						
 						
 						

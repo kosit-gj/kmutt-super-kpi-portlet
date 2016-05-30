@@ -206,7 +206,7 @@ function detailInit(e) {
 		 type:'get',
 		dataType:'json',
 		//$("#paramMonthEmbed").val()
-		data:{"paramMonth":59,"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode},
+		data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode},
 		async:false,
 		success:function(data){
 			kpiLIstData2+="[";
@@ -215,6 +215,30 @@ function detailInit(e) {
 				
 				
 				var textComment;
+				//check comment on kpi table start
+				$.ajax({
+					 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
+					 type:'get',
+					dataType:'html',
+					data:{"kpiID":indexEntry[13],"action":"getDataComment"},
+					async:false,
+					success:function(data){
+						//alert("["+data.trim()+"]");
+						if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+							//alert("data is null");
+							if($("#checkRole").val().trim()=="Admin"){
+								textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[13]+"'></i>";
+							}else{
+								textComment="";
+							}
+						}else{
+								textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[13]+"'></i>";
+						}
+					}
+				});
+				//check comment on kpi table end
+				
+				/*
 				if(indexEntry[14]==null || indexEntry[14]==""){
 					//alert("data is null");
 					if($("#checkRole").val().trim()=="Admin"){
@@ -225,6 +249,7 @@ function detailInit(e) {
 				}else{
 						textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[13]+"'></i>";
 				}
+				*/
 				
 				
 				if(index==0){
@@ -562,6 +587,35 @@ getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID){
                
 					$.each(data,function(index,indexEntry){
 						var textComment;
+						
+						
+						//check comment on kpi table start
+						
+						$.ajax({
+							 url:'/kmutt-super-kpi-portlet/Model/kpiPerspective/mComment.jsp',
+							 type:'get',
+							dataType:'html',
+							data:{"kpiID":indexEntry[13],"action":"getDataComment"},
+							async:false,
+							success:function(data){
+								//alert("["+data.trim()+"]");
+								if(data.trim()==null || data.trim()=="" || data.trim()=="null"){
+									//alert("data is null");
+									if($("#checkRole").val().trim()=="Admin"){
+										textComment="<i class='icon-plus-sign btnCommintInline'  id='kpiIDComment-"+indexEntry[13]+"'></i>";
+									}else{
+										textComment="";
+									}
+								}else{
+										textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[13]+"'></i>";
+								}
+							}
+						});
+					
+						//check comment on kpi table end
+						
+						/*
+						
 						if(indexEntry[14]==null || indexEntry[14]==""){
 							//alert("data is null");
 							if($("#checkRole").val().trim()=="Admin"){
@@ -569,15 +623,10 @@ getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID){
 							}else{
 								textComment="";
 							}
-							
-							
-						}else{
-							
-							
-								textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[13]+"'></i>";
-							
-							
-						}
+							}else{
+									textComment="<i class='icon-info-sign btnCommintInline' style='color:green;' id='kpiIDComment-"+indexEntry[13]+"'></i>";
+							}
+						*/
 						
 							/*
 							kpiLIstData+="<tr>"; 
