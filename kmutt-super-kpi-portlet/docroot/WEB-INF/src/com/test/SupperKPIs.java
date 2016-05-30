@@ -193,15 +193,17 @@ public class SupperKPIs extends MVCPortlet {
 	            
 	            
 	            	
-	            rst.next();
-	            	
-	            dataObjectHTML=rst.getString(Integer.parseInt(columns));
-	            		
-	            	
-	            	
+		            if(rst.next()){
+		            	
+		            dataObjectHTML=rst.getString(Integer.parseInt(columns));
+		            		
+		            	
+		            }else{
+		            dataObjectHTML="";	
+		            }
 
 	            }
-	            dataObjectHTML=dataObjectHTML;
+	            /*dataObjectHTML=dataObjectHTML;*/
 	            conn.close();
 	        
 	      }
