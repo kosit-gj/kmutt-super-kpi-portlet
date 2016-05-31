@@ -669,9 +669,10 @@ getGoldFn = function(paramOrg,paramMonth){
 						id=id[1];
 						//alert(id);
 						genGridData(id);
+						//$("#contentGrid-"+id).show();
 						//alert(id);
 					});
-					$("#accordion h3:eq(0)").click();
+					$("#accordion h3:eq(0)").click().click();
 				},1000);
 				//$("#accordion" ).accordion();
 				
