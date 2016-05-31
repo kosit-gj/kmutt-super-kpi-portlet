@@ -475,8 +475,9 @@ getPerFn = function(paramOrg,paramMonth){
 				$("#accordionArea").append("<div id=\"accordion\"></div>");	
 				
 				$("#accordion").html(htmlCotent);
+				$("#accordion").multiAccordion();
 				setTimeout(function(){
-					$("#accordion").multiAccordion({active: 1 });
+					
 					/*
 					$("#accordion").accordion({
 						 collapsible:false,

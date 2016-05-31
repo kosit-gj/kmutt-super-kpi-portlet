@@ -624,8 +624,10 @@ getGoldFn = function(paramOrg,paramMonth){
 				$("#accordionArea").append("<div id=\"accordion\"></div>");	
 		
 				$("#accordion").html(htmlCotent);
+				$("#accordion").multiAccordion();
 				setTimeout(function(){
-					$("#accordion").multiAccordion({active: 1 });
+					//{active: 0 }
+					//$("#accordion").multiAccordion();
 					/*
 					$("#accordion").accordion({
 						
@@ -661,19 +663,15 @@ getGoldFn = function(paramOrg,paramMonth){
 					});
 					 */
 					$(".bgKpi").show();
-					
 					$(".getGroupID").click(function(){
 						//alert("hello jquery test system");
-						
 						var id=this.id.split("-");
 						id=id[1];
 						//alert(id);
-						
 						genGridData(id);
+						//alert(id);
 					});
-					
 					$("#accordion h3:eq(0)").click();
-					
 				},1000);
 				//$("#accordion" ).accordion();
 				
@@ -683,7 +681,7 @@ getGoldFn = function(paramOrg,paramMonth){
 			/*End Logic program here.*/
 		}
 	});
-			
+			 
 }
 
 var getOrgFn = function(paramMonth,paramOrg){
