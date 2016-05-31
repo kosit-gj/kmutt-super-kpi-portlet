@@ -298,6 +298,7 @@ var convertNullToZero = function(valueData){
 	return dataReturn;
 };
 var paramMonthFn=function(month_current,paramYear){
+	//alert(month_current);
 
 	var htmlParam="";
 		$.ajax({
@@ -312,11 +313,11 @@ var paramMonthFn=function(month_current,paramYear){
 				//console.log(data);
 				$("#monthParamArea").html("<select style=\"width:100px;\" id=\"monthParam\"> </select>");
                 $.each(data,function(index,indexEntry){
-                	if(parseInt(month_current)==parseInt(indexEntry[1])){
+                	if(parseInt(month_current)==parseInt(indexEntry[0])){
                 		
-                		htmlParam+="<option selected value='"+indexEntry[0]+"'>"+indexEntry[2]+"</option>";	
+                		htmlParam+="<option selected value='"+indexEntry[1]+"'>"+indexEntry[1]+"</option>";	
                 	}else{
-                		htmlParam+="<option value='"+indexEntry[0]+"'>"+indexEntry[2]+"</option>";
+                		htmlParam+="<option value='"+indexEntry[1]+"'>"+indexEntry[1]+"</option>";
                 	}
                 });
                 $("#monthParam").html(htmlParam);
@@ -463,6 +464,30 @@ var paramYearFn=function(year_current,monthCurrent){
 	                $("#paramYear").kendoDropDownList();
 	                //cal month function here start
 	                $("#paramYear").change(function(){
+	                	
+	                	/*
+	                	var yearTHCurrent= parseInt(yearCurrent)+543;
+	                	if( $("#paramYear").val()!=yearTHCurrent){
+	                		
+	                		alert("year not current");
+	                		$("#monthParam").kendoDropDownList({
+                			  enable: false
+                			});
+                			
+	                		$(".monthParam").hide();
+	                		
+	                	}else{
+	                		
+	                		$("#monthParam").kendoDropDownList({
+                			  enable: true
+                			});
+	                		
+	                		$(".monthParam").show();
+	                		//alert("year current");
+	                		
+	                	}
+	                		*/
+	                		
 	                	
 	                	
 	                	paramMonthFn(monthCurrent,$(this).val());

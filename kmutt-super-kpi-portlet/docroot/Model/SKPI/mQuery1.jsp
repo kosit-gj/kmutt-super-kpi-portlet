@@ -21,6 +21,7 @@ order by kpi_code
 */
 
 String query="";
+/*
 query+="select kpi_id, kpi_code, kpi_name, calendar_year, kpi_weight, percent_actual_vs_target, has_child"; 
 query+=" from kpi_result";
 query+=" where fiscal_month_no = "+month_id+"";
@@ -29,7 +30,20 @@ query+=" and org_id = "+org_id+"";
 query+=" and kpi_structure_id = "+sk_id+"";
 query+=" and parent_kpi_id is null";
 query+=" order by kpi_code";
+*/
 
+
+query+="select kpi_id, kpi_code, kpi_name, calendar_year, kpi_weight, percent_actual_vs_target, has_child"; 
+query+=" from kpi_result";
+query+=" where  (";
+query+=" calendar_year = '"+paramYear+"' and th_month_name = '"+month_id+"' or";
+query+=" fiscal_year = '"+paramYear+"' and th_month_name = '"+month_id+"' or";
+query+=" academic_year = '"+paramYear+"' and th_month_name = '"+month_id+"'";
+query+=" )";
+query+=" and org_id = "+org_id+"";
+query+=" and kpi_structure_id = "+sk_id+"";
+query+=" and parent_kpi_id is null";
+query+=" order by kpi_code";
 String culumn="1,2,3,4,5,6,7";
 
 jndi.selectByIndexDwh(query, culumn);

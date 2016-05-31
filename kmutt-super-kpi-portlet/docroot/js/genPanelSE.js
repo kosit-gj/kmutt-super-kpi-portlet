@@ -508,7 +508,7 @@ var callSubKPIFn=function(paramYear,paramMonth,paramOrg,paramSK,score,fillColor,
       			url:"/kmutt-super-kpi-portlet/Model/kpiGolds/mGoal.jsp", 
       			type:"get", 
       			dataType:"json",
-      			data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val()},
+      			data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramYear":$("#paramYearEmbed").val()},
       			async:false,
       			success:function(data){
       				//alert("mGoal");

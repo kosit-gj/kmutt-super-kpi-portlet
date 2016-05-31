@@ -204,7 +204,7 @@ var genGridData = function(paramGridID){
     	   $("#paramOrgEmbed").val();
     	   */
     	   
-           data: getKpiGoldsListFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),paramGridID)
+           data: getKpiGoldsListFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),paramGridID,$("#paramYearEmbed").val())
        },
 
        columns: [
@@ -241,7 +241,9 @@ var genGridData = function(paramGridID){
 					rangeColors: ['#dbe1fe','#a8b6ff','#7f94ff '],
 					tooltipFormat: ''
 				});
+
 	},1000);
+	
 	//hidden rows start
 	var dataHasChild =$(".hasChild").get();
 	$(dataHasChild).each(function(index,indexEntry){
@@ -277,7 +279,7 @@ function detailInit(e) {
 		 url:'/kmutt-super-kpi-portlet/Model/kpiGolds/kpiGoldsListbyKpiGroup.jsp',
 		 type:'get',
 		dataType:'json',
-		data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode},
+		data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode,"paramYear":$("#paramYearEmbed").val()},
 		async:false,
 		success:function(data){
 			kpiLIstData2+="[";
@@ -493,7 +495,7 @@ var genHTMLGirdContent = function(gridName){
 htmldataContent+="<div class='clearfix'></div>";
 return htmldataContent;
 }
-getGoldFn = function(paramOrg,paramMonth){
+getGoldFn = function(paramOrg,paramMonth,paramYear){
 	//alert("hello");
 	var htmlCotent="";
 	var htmldataContent="";
@@ -502,7 +504,7 @@ getGoldFn = function(paramOrg,paramMonth){
 		type:"get",
 		dataType:"json",
 		async:false,
-		data:{"paramMonth":paramMonth,"paramOrg":paramOrg},
+		data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramYear":paramYear},
 		success:function(data){
 			
 			if(data==''){
@@ -672,8 +674,13 @@ getGoldFn = function(paramOrg,paramMonth){
 						//$("#contentGrid-"+id).show();
 						//alert(id);
 					});
-					$("#accordion h3:eq(0)").click().click();
-				},1000);
+					$("#accordion h3:eq(0)").click();
+				});
+				
+				setTimeout(function(){
+					$("#accordion h3:eq(0)").click();
+				},2000);
+				
 				//$("#accordion" ).accordion();
 				
 			
@@ -685,7 +692,7 @@ getGoldFn = function(paramOrg,paramMonth){
 			 
 }
 
-var getOrgFn = function(paramMonth,paramOrg){
+var getOrgFn = function(paramMonth,paramOrg,paramYear){
 	//?paramMonth=59&paramOrg=1
 	$(".subTitleGold").hide();
 	var htmlOrg="";
@@ -694,7 +701,7 @@ var getOrgFn = function(paramMonth,paramOrg){
 		type:"get",
 		dataType:"json",
 		async:false,
-		data:{"paramMonth":paramMonth,"paramOrg":paramOrg},
+		data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramYear":paramYear},
 		success:function(data){
 			//alert(data[0][1]);
 			
@@ -715,7 +722,7 @@ var getOrgFn = function(paramMonth,paramOrg){
 };
 
 
-getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
+getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID,paramYear){
 	
 
 	
@@ -725,7 +732,7 @@ getKpiGoldsListFn=function(paramMonth,paramOrg,paramKPIGroupID){
 			type:"get",
 			dataType:"json",
 			async:false,
-			data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramKPIGroupID":paramKPIGroupID},
+			data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramKPIGroupID":paramKPIGroupID,"paramYear":paramYear},
 			success:function(data){
 				
 				/*Logic program here.*/
@@ -851,7 +858,9 @@ $(document).ready(function(){
 	$(window).on("orientationchange",function(){
 		
 	});
-	paramYearFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
+	//paramYearFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
+	
+	paramYearFn(yearTHCurrent,monthTHCurrent);
 	paramOrgFn();
 	//$( "#accordion" ).accordion();
 	
@@ -871,8 +880,8 @@ $(document).ready(function(){
 
 		//$("#paramMonthEmbed").val()
 		
-		getGoldFn($("#paramOrgEmbed").val(),$("#paramMonthEmbed").val());
-		getOrgFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val());
+		getGoldFn($("#paramOrgEmbed").val(),$("#paramMonthEmbed").val(),$("#paramYearEmbed").val());
+		getOrgFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),$("#paramYearEmbed").val());
 		
 		getImageByOrg($("#paramOrgEmbed").val());
 		

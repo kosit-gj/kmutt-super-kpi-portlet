@@ -23,8 +23,16 @@ order by kpi_code
 String query="";
 query+="select kpi_id, kpi_code, kpi_name, fiscal_year, kpi_weight, percent_actual_vs_target"; 
 query+=" from kpi_result";
+/*
 query+=" where fiscal_month_no = "+month_id+"";
 query+=" and fiscal_year="+paramYear+"";
+*/
+query+=" where  (";
+query+=" calendar_year = '"+paramYear+"' and th_month_name = '"+month_id+"' or";
+query+=" fiscal_year = '"+paramYear+"' and th_month_name = '"+month_id+"' or";
+query+=" academic_year = '"+paramYear+"' and th_month_name = '"+month_id+"'";
+query+=" )";
+
 query+=" and org_id = "+org_id+"";
 query+=" and (parent_kpi_id = "+kpi_id+" or kpi_id="+kpi_id+")";
 query+=" order by kpi_code";

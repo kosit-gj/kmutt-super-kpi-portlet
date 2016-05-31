@@ -324,7 +324,7 @@ h3>.ui-icon{
 	    margin-left: 0px;
 		padding:0px;
 	    position: static;
-	    width: 100%;
+	    width: 94%;
 	    font-size: 13px;
 	    
 		}
@@ -335,7 +335,7 @@ h3>.ui-icon{
 		padding:0px;
 	    text-align: left;
 	    top: 5px;
-	    width: 100%;
+	    width: 94%;
 		}
 		/*title content end*/
 		/*image start*/
@@ -351,6 +351,10 @@ h3>.ui-icon{
 		}
 		/*image end*/
 		
+		h3>.ui-icon{
+			float: left;
+		    margin-top: 5px;
+		}
 		
 		
 		/*

@@ -132,7 +132,7 @@ var genGridData = function(paramGridID){
     	   $("#paramOrgEmbed").val();
     	   */
     	   //$("#paramMonthEmbed").val()
-           data: getKpiPerListFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),paramGridID)
+           data: getKpiPerListFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),paramGridID,$("#paramYearEmbed").val())
        },
 
        columns: [
@@ -206,7 +206,7 @@ function detailInit(e) {
 		 type:'get',
 		dataType:'json',
 		//$("#paramMonthEmbed").val()
-		data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode},
+		data:{"paramMonth":$("#paramMonthEmbed").val(),"paramOrg":$("#paramOrgEmbed").val(),"paramKPIID":e.data.FieldKpiCode,"paramYear":$("#paramYearEmbed").val()},
 		async:false,
 		success:function(data){
 			kpiLIstData2+="[";
@@ -428,7 +428,7 @@ var genHTMLGirdContent = function(gridName){
 htmldataContent+="<div class='clearfix'></div>";
 return htmldataContent;
 }
-getPerFn = function(paramOrg,paramMonth){
+getPerFn = function(paramOrg,paramMonth,paramYear){
 	//alert("hello");
 	var htmlCotent="";
 	var htmldataContent="";
@@ -437,7 +437,7 @@ getPerFn = function(paramOrg,paramMonth){
 		type:"get",
 		dataType:"json",
 		async:false,
-		data:{"month_id":paramMonth,"org_id":paramOrg},
+		data:{"month_id":paramMonth,"org_id":paramOrg,"paramYear":paramYear},
 		success:function(data){
 			
 			if(data==''){
@@ -522,9 +522,12 @@ getPerFn = function(paramOrg,paramMonth){
 						genGridData(id);
 					});
 					
-					$("#accordion h3:eq(0)").click().click();
+					$("#accordion h3:eq(0)").click();
 					
-				},1000);
+				});
+				setTimeout(function(){
+					$("#accordion h3:eq(0)").click();
+				},2000);
 				//$("#accordion" ).accordion();
 				
 			
@@ -536,7 +539,7 @@ getPerFn = function(paramOrg,paramMonth){
 			
 }
 
-var getOrgFn = function(paramMonth,paramOrg){
+var getOrgFn = function(paramMonth,paramOrg,paramYear){
 	//?paramMonth=59&paramOrg=1
 	$(".subTitleGold").hide();
 	var htmlOrg="";
@@ -545,7 +548,7 @@ var getOrgFn = function(paramMonth,paramOrg){
 		type:"get",
 		dataType:"json",
 		async:false,
-		data:{"paramMonth":paramMonth,"paramOrg":paramOrg},
+		data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramYear":paramYear},
 		success:function(data){
 			//alert(data[0][1]);
 			
@@ -566,7 +569,7 @@ var getOrgFn = function(paramMonth,paramOrg){
 };
 
 
-getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID){
+getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID,paramYear){
 	
 
 	
@@ -576,7 +579,7 @@ getKpiPerListFn=function(paramMonth,paramOrg,paramKPIPerID){
 			type:"get",
 			dataType:"json",
 			async:false,
-			data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramKPIPerID":paramKPIPerID},
+			data:{"paramMonth":paramMonth,"paramOrg":paramOrg,"paramKPIPerID":paramKPIPerID,"paramYear":paramYear},
 			success:function(data){
 				
 				/*Logic program here.*/
@@ -724,8 +727,7 @@ var monthTHCurrent=parseInt(monthCurrent)+1;
 var yearCurrent = d.getFullYear(); 
 var yearTHCurrent= parseInt(yearCurrent)+543;
 
-paramYearFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
-paramOrgFn();
+
 //initial data end
 
 
@@ -734,6 +736,10 @@ paramOrgFn();
 
 $(document).ready(function(){
 	
+	
+	//paramYearFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
+	paramYearFn(yearTHCurrent,monthTHCurrent);
+	paramOrgFn();
 	
 	$(window).on("orientationchange",function(){
 		
@@ -759,8 +765,8 @@ $(document).ready(function(){
 
 		//$("#paramMonthEmbed").val()
 		
-		getPerFn($("#paramOrgEmbed").val(),$("#paramMonthEmbed").val());
-		getOrgFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val());
+		getPerFn($("#paramOrgEmbed").val(),$("#paramMonthEmbed").val(),$("#paramYearEmbed").val());
+		getOrgFn($("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),$("#paramYearEmbed").val());
 		//getOrgFn();
 		
 		getImageByOrg($("#paramOrgEmbed").val(),"per");

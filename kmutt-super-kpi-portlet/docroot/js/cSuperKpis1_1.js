@@ -1,6 +1,22 @@
 	//var pointCurrentGold=0;
 	//var endGold =0;
-
+ //initial data start
+	var d = new Date();
+	var monthCurrent = d.getMonth(); 
+	var monthTHCurrent=parseInt(monthCurrent)+1;
+	//alert(monthTHCurrent);
+	var yearCurrent = d.getFullYear(); 
+	var yearTHCurrent= parseInt(yearCurrent)+543;
+	
+	/*
+	setTimeout(function(){
+		
+		paramYearFiscalFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
+		paramOrgFn();
+		
+	},1000);
+	*/
+  //initial data end
 var pagingGoldKpiFn=function(data,sk_id){
 		//alert("hellos");
 		//alert(sk_id);
@@ -41,14 +57,19 @@ var pagingGoldKpiFn=function(data,sk_id){
 		});
 	}
 
+
+
 $(document).ready(function(){
 	
 	
 	
 	
+	//paramYearFiscalFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
 	
+	paramYearFn(yearTHCurrent,monthTHCurrent);
+	paramOrgFn();
 	
-	getKpiSKDataFn=function(paramYear,paramMonth,paramOrg){
+	getKpiSKDataFn=function(paramYear,paramMonth,paramOrg,paramYear){
 		
 		$("#SKdataArea").empty();
 		var score ="";
@@ -61,7 +82,7 @@ $(document).ready(function(){
 				type:"get",
 				dataType:"json",
 				async:false,
-				data:{"month_id":paramMonth,"org_id":paramOrg},
+				data:{"month_id":paramMonth,"org_id":paramOrg,"paramYear":paramYear},
 				success:function(data){
 					
 					
@@ -225,23 +246,7 @@ $(document).ready(function(){
 	 
 	
 	
-  //initial data start
-	var d = new Date();
-	var monthCurrent = d.getMonth(); 
-	var monthTHCurrent=parseInt(monthCurrent)+1;
-	//alert(monthTHCurrent);
-	var yearCurrent = d.getFullYear(); 
-	var yearTHCurrent= parseInt(yearCurrent)+543;
-	
-	setTimeout(function(){
-		
-		paramYearFiscalFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
-		paramOrgFn();
-		
-	},1000);
-	
-	
-  //initial data end
+ 
 	
   //search data for data start
 	$(".btnRollbackArea").hide();
@@ -261,13 +266,13 @@ $(document).ready(function(){
 		$("body").append("<input type=\"hidden\" id=\"paramYearEmbed\" class=\"paramEmbed\" name=\"paramYearEmbed\" value=\""+paramYear+"\">");
 		
 		$("body").append("<input type=\"hidden\" id=\"paramMonthFiscalEmbed\" class=\"paramEmbed\" name=\"paramMonthFiscalEmbed\" value=\""+paramMOnthFiscal+"\">");
-		$("body").append("<input type=\"hidden\" id=\"paramMonthEmbed\" class=\"paramEmbed\" name=\"paramMonthEmbed\" value=\""+paramMOnth+"\">");
+		$("body").append("<input type=\"hidden\" id=\"paramMonthEmbed\" class=\"paramEmbed\" name=\"paramMonthEmbed\" value=\""+$("#monthParam").val()+"\">");
 		$("body").append("<input type=\"hidden\" id=\"paramOrgEmbed\" class=\"paramEmbed\" name=\"paramOrgEmbed\" value=\""+paramOrg+"\">");
 		
 		
 		//alert($("#paramYearEmbed").val()+"="+$("#paramMonthEmbed").val()+"="+$("#paramOrgEmbed").val());
 		
-		getKpiSKDataFn($("#paramYearEmbed").val(),$("#paramMonthEmbed").val(),$("#paramOrgEmbed").val());
+		getKpiSKDataFn($("#paramYearEmbed").val(),$("#paramMonthEmbed").val(),$("#paramOrgEmbed").val(),$("#paramYearEmbed").val());
 		
 		$("#SKdataArea").show();
 		$("#subSKdataArea").hide();

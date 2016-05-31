@@ -7,11 +7,16 @@
 SupperKPIs jndi = new SupperKPIs();
 String paramMonth = request.getParameter("paramMonth");
 String paramOrg = request.getParameter("paramOrg");
+String paramYear = request.getParameter("paramYear");
 
 /*
 select org_id, org_name, (sum(percent_wavg)/sum(kpi_weight))*100
 from kpi_result
-where month_id = 59
+where  (
+calendar_year = 2559 and th_month_name = 'พ.ค.' or
+fiscal_year = 2559 and th_month_name = 'พ.ค.' or
+academic_year = 2559 and th_month_name = 'พ.ค.'
+)
 and org_id = 1
 group by org_id, org_name
 
@@ -21,7 +26,11 @@ String query="";
 
 query+="select org_id, org_name, (sum(percent_wavg)/sum(kpi_weight))*100";
 query+=" from kpi_result";
-query+=" where month_id  = "+paramMonth+"";
+query+=" where  (";
+query+=" calendar_year = '"+paramYear+"' and th_month_name = '"+paramMonth+"' or";
+query+=" fiscal_year = '"+paramYear+"' and th_month_name = '"+paramMonth+"' or";
+query+=" academic_year = '"+paramYear+"' and th_month_name = '"+paramMonth+"'";
+query+=" )";
 query+=" and org_id = "+paramOrg+"";
 query+=" and parent_kpi_id is null";
 query+=" group by org_id, org_name";
