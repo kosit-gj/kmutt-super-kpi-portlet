@@ -65,6 +65,25 @@ var responsiveFn=function(){
 	
 };
 //alert(responsiveFn());
+var getCurrentDateTime =  function(){
+	var d = new Date();
+	var monthCurrent = d.getMonth(); 
+	var dayCurrent = d.getDate(); 
+	var monthTHCurrent=parseInt(monthCurrent)+1;
+	var yearCurrent = d.getFullYear(); 
+	var hourCurrent = d.getHours(); 
+	var minuteCurrent = d.getMinutes(); 
+	var secondCurrent = d.getSeconds(); 
+	
+	var dateTime = yearCurrent+"-"+monthTHCurrent+"-"+dayCurrent+" "+hourCurrent+":"+minuteCurrent+":"+secondCurrent;
+	//alert(dateTime);
+	return dateTime;
+	
+	
+	
+}
+
+//getCurrentDateTime();
 
 var getRangeThreholdFn = function(paramYear){
 	var rangeThrehold="";
@@ -217,7 +236,7 @@ var modalAddCOmmentFn=function(kpiID){
 			    		['Outdent', 'Indent', '-', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']]
 			    });
 			    $("#CommentArea").show();
-			},500);
+			});
 		  //dialog start
 			
 		    $( "#dialog-comment" ).dialog({

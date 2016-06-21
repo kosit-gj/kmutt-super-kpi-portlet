@@ -37,6 +37,10 @@
 #spanHead{
 	/*width:1012px;*/
 }
+.ui-dialog-titlebar .ui-button-text{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
 </style>
 <!-- header -->
 <!-- <div class="container-fluid"> -->

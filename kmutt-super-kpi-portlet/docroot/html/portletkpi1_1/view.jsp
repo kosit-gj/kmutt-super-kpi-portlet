@@ -2,9 +2,7 @@
 <%@ taglib uri="http://alloy.liferay.com/tld/aui" prefix="aui"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
-   
+ 
 <portlet:defineObjects />
 <%
 boolean role= request.isUserInRole("Administrator");
@@ -33,6 +31,9 @@ width: 33.33%;
 
 .ui-dialog .ui-dialog-content{
 padding: 0.5px 1px;
+}
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text{
+/*padding:0px;*/
 }
 
 
@@ -376,6 +377,18 @@ if(permissionChecker.isOmniadmin())
 */
 %>
 
+<!-- button add comment to chart_comment by db2 database start. -->
+
+<!-- 
+ <button id='addCommentDB2'>comment</button> 
+  -->
+ <div id="dialog-comment-db2" title="Commment" >
+  <span id="CommentAreaDB2">	
+  </span>  		
+</div>
+ 
+ 
+<!-- button add comment to chart_comment by db2 database end. -->
 <!-- 
 <div class='container'>
  -->

@@ -22,11 +22,11 @@
 		<css-class-wrapper>my-hello-world-portlet</css-class-wrapper>
 	</portlet>  
  --> 
- 
+    
 	<portlet>
 		<portlet-name>supper-kp-is</portlet-name>       
 		<icon>/icon.png</icon>       
-		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
+		 
 		<!-- 
 		<header-portlet-css>/js/jquery-ui/css/custom-theme/jquery-ui-1.10.4.custom.min.css</header-portlet-css>
 		 --> 
@@ -34,6 +34,7 @@
 		<header-portlet-css>/css/supperKpi.css</header-portlet-css>
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.common.css</header-portlet-css> 
 		<header-portlet-css>/js/ChartLib_KendoUI/styles/kendo.default.css</header-portlet-css> 
+		<header-portlet-css>/jquery-ui/jquery-ui.css</header-portlet-css>
 	
 		
 		 <footer-portlet-javascript> 
@@ -89,9 +90,10 @@
 		<icon>/icon.png</icon>  
 		 
 		<!-- <header-portlet-css>/css/bootstrap.min.css</header-portlet-css> -->  
-		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
+		<header-portlet-css>/jquery-ui/jquery-ui.css</header-portlet-css>
 		<header-portlet-css>/css/jquery.circliful.css</header-portlet-css> 
 		<header-portlet-css>/css/material-design-iconic-font.min.css</header-portlet-css> 
+		
 		<header-portlet-css>/css/main.css</header-portlet-css>
 		<header-portlet-css>/css/superKpis1_1.css</header-portlet-css>
 		<header-portlet-css>/css/subSupperKpi1_1_1.css</header-portlet-css>
@@ -168,8 +170,9 @@
 		<portlet-name>test-portlet2</portlet-name>
 		<icon>/icon.png</icon> 
 		<header-portlet-css>/css/main.css</header-portlet-css>
-		<header-portlet-css>/css/jquery-ui.css</header-portlet-css> 
+		<header-portlet-css>/jquery-ui/jquery-ui.css</header-portlet-css>
 		<header-portlet-css>/css/supperKpi.css</header-portlet-css> 
+		
 		<!-- 
 		<header-portlet-css>/css/supperKpiByPer.css</header-portlet-css>
 		 -->
@@ -253,7 +256,7 @@
 	</role-mapper>     
 </liferay-portlet-app>   
          
-                                                                                                                          
-                                                                                                                                                                                                                                                                                                                                                                                                             
-                                                                                                                                                                                                   
+                                                                                                                                 
+                                                                                                                                                                                                                                                                                                                                                                                                                       
+                                                                                                                                                                                                         
                               

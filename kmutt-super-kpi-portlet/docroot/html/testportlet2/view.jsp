@@ -22,27 +22,7 @@ if(role){
 <html>
 <head>
     <title>Test</title>
-	<!-- 
-    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
- 	-->
-    <!-- Jquery -->
-    <!-- 
-     <script src="<c:url value="/js/ChartLib_KendoUI/js/jquery-1.11.2.min.js"/>"></script> 
-      -->
-    
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<!-- 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-     -->
-    
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> 
-   <!-- 
-   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   -->
-  
   
 
 	
@@ -86,6 +66,10 @@ padding: 0.5px 1px;
 h3>.ui-icon{
 	float: left;
     margin-top: 5px;
+}
+.ui-dialog-titlebar .ui-button-text{
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 

@@ -6,6 +6,9 @@
 SupperKPIs jndi = new SupperKPIs();
 String paramYear = request.getParameter("paramYear");
 String paramScore = request.getParameter("paramScore");
+if(paramScore.equals("")){
+	paramScore="0";
+}
 
 
 String query="";

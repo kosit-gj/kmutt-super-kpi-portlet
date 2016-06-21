@@ -171,6 +171,83 @@ public class SupperKPIs extends MVCPortlet {
 	      logger.error("erorr"+e);
 	    }
 	 }
+	
+	public void selectDB2(String query,String columns) {
+		System.out.println("\nNow!! Method selectDB2() is running.\n"
+				+ "\nString query: "+query+"\n"); 
+	    try{
+	      Context ctx = new InitialContext();
+	      if(ctx == null ) 
+	          throw new Exception("Boom - No Context");
+
+	      DataSource ds = 
+	            (DataSource)ctx.lookup(
+	               "java:comp/env/jdbc/kmuttShared");
+
+	      if (ds != null) {
+	        Connection conn = ds.getConnection();
+	              
+	        if(conn != null)  {
+	        	dataObject="";
+	            Statement stmt = conn.createStatement();
+	            ResultSet rst = 
+	                stmt.executeQuery(query);
+	            
+	             	if(rst.next()){
+	             		//System.out.println(rst.getString(Integer.parseInt(columns)));
+	             		dataObjectHTML=rst.getString(Integer.parseInt(columns));
+		            }else{
+		            	dataObjectHTML="";	
+		            }
+	           conn.close();
+	        } 
+	      }
+	    }catch(Exception e) {
+	      e.printStackTrace();
+	      logger.error("erorr"+e);
+	    }
+	 }
+	
+	public void updateByDB2(String query) { 
+		System.out.println("\nNow!! Method updateByDB2() is running.\n"
+				+ "\nString query: "+query+"\n"); 
+	    try{
+	      Context ctx = new InitialContext();
+	      if(ctx == null ) 
+	          throw new Exception("Boom - No Context");
+
+	      DataSource ds = 
+	            (DataSource)ctx.lookup(
+	               "java:comp/env/jdbc/kmuttShared");
+
+	      if (ds != null) {
+	        Connection conn = ds.getConnection();
+	              
+	        if(conn != null)  {
+	        	
+	        	
+	        	dataObject="";
+	            Statement stmt = conn.createStatement();
+	            int count= stmt.executeUpdate(query);
+	            if(count>0){
+	            	dataObject="[\"success\"]"; 
+	            }else{
+	            	dataObject="[\"error\"]"; 
+	            }
+	            
+	            
+	            
+	            conn.close();
+	        }
+	      }
+	    }catch(Exception e) {
+	      e.printStackTrace();
+	      logger.error("\n --erorr--> "+e+"\n");
+	    }
+	 }
+	
+	
+	
 	public void selectHTML(String query,String columns) {
 
 	    try{

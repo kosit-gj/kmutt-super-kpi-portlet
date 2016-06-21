@@ -233,6 +233,7 @@
 	var setBorderBox = function(id,paramYear,dataScore){
 		
 		/*get color from thershold start*/
+		/*
 		if(parseInt(dataScore).toFixed(2)=="NaN"){
 			dataScore=0;
 		}else{
@@ -240,7 +241,25 @@
 		}
 		var dataThreshold = getThresholdFn(paramYear,dataScore);
 		var colorThreshold=dataThreshold[0][4];
+		*/
+		
+		
+		var dataThreshold="";
+		var colorThreshold="";
+		if(parseInt(dataScore).toFixed(2)=="NaN"){
+			dataScore=0;
+			colorThreshold="#dddddd";
+		}else{
+			if(getThresholdFn(paramYear,dataScore)!=""){
+				dataScore=parseInt(dataScore).toFixed(2);
+				dataThreshold = getThresholdFn(paramYear,dataScore);
+				colorThreshold=dataThreshold[0][4];
+			}
+		}
+		
 		/*get color from thershold end*/
+		
+		
 		
 		
 		$("#panel-"+id).css({"border-color":colorThreshold});
@@ -378,21 +397,49 @@ var createPanelKpi = function(data,dataParam,foregroundColorParam){
 		//check null kpi result
 		if(indexEntry[5]==null){
 			
-			kpi_result="&nbsp;";
+			kpi_result="N.A.";
 		}else{
-			kpi_result=indexEntry[5]+"%";
+			kpi_result=checkDataNotNullAndPercentage(indexEntry[5]);
 			
 		}
 		
 		/*get color from thershold start*/
 		var dataScore="";
+		var dataThreshold="";
+		var colorThreshold="";
 		if(parseInt(kpi_result).toFixed(2)=="NaN"){
 			dataScore=0;
+			colorThreshold="#dddddd";
 		}else{
-			dataScore=parseInt(kpi_result).toFixed(2);
+			
+			
+			if(getThresholdFn(dataParam[1],dataScore)!=""){
+				
+				dataScore=parseInt(kpi_result).toFixed(2);
+				dataThreshold = getThresholdFn(dataParam[1],dataScore);
+				colorThreshold=dataThreshold[0][4];
+				
+			}
+			
+			
+			/*
+			alert("dataThreshold="+dataThreshold);
+			if(dataThreshold==""){
+				alert("dataThreshold is null");
+			}else if(dataThreshold[0]==""){
+				alert("dataThreshold[0] is null");
+			}else{
+				alert(dataThreshold);
+			}
+			*/
+			//colorThreshold=dataThreshold[0][4];
+			
+			
+			
+			
 		}
-		var dataThreshold = getThresholdFn(dataParam[1],dataScore);
-		var colorThreshold=dataThreshold[0][4];
+		
+		
 		/*get color from thershold end*/
 
 		var content = "";

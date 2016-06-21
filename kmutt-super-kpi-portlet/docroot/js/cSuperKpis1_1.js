@@ -64,6 +64,144 @@ $(document).ready(function(){
 	
 	
 	
+	/*###################script for EIS Start###################*/
+	
+	
+	var getCurrentDateDB2Time =  function(){
+		var d = new Date();
+		var monthCurrent = d.getMonth(); 
+		var dayCurrent = d.getDate(); 
+		var monthTHCurrent=parseInt(monthCurrent)+1;
+		var yearCurrent = d.getFullYear(); 
+		var hourCurrent = d.getHours(); 
+		var minuteCurrent = d.getMinutes(); 
+		var secondCurrent = d.getSeconds(); 
+		
+		var dateTime = yearCurrent+"-"+monthTHCurrent+"-"+dayCurrent+" "+hourCurrent+":"+minuteCurrent+":"+secondCurrent;
+		//alert(dateTime);
+		return dateTime;
+		
+		
+		
+	}
+	var updateCommentDB2Fn = function(paramComment){
+		
+		
+		$.ajax({
+			url:"/kmutt-super-kpi-portlet/Model/updateCommentDB2.jsp",
+			type:"get",
+			dataType:"json",
+			async:false,
+			data:{"comment":paramComment,"update_date":getCurrentDateDB2Time()},
+			success:function(data){
+				//alert(data);
+				if(data=='success'){
+					alert("บันทึกเรียบร้อย");
+				}else{
+					alert("ไม่สามารถบันทึกได้");
+				}
+				$("#dialog-comment-db2").dialog( "close" );
+			}
+		});
+		
+	}
+	var modalAddCOmmentDB2Fn = function(){
+		/*get comment from db2 start now*/
+			/*
+			if($("#checkRole").val().trim()=="Admin"){
+				
+			}
+			*/
+		
+	 		$.ajax({
+				url:"/kmutt-super-kpi-portlet/Model/selectCommentDB2.jsp",
+				type:"get",
+				dataType:"html",
+				async:false,
+				success:function(data){
+						//alert(data);
+					
+						
+				/*-----------------------------------*/		
+
+						if(data.trim()=="null"){
+							data="";
+							
+						}
+						if($("#checkRole").val().trim()=="Admin"){
+						$("#CommentAreaDB2").hide();
+						setTimeout(function(){
+							
+							$("#CommentAreaDB2").html("<textarea name=\"editor1\" id=\"editor1\" rows=\"9\" cols=\"85\">"+data+"</textarea>");
+							//$(".ui-dialog-buttonpane").show();
+						    editor=CKEDITOR.replace( 'editor1', {
+						    	toolbar:
+						    		[ ['Bold', 'Italic', 'Underline','-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink']]
+						    });
+						    $("#CommentAreaDB2").show();
+						});
+					  //dialog start
+						
+					    $( "#dialog-comment-db2" ).dialog({
+					    	
+					        resizable: true,
+					        //height:350,
+					        width:350,
+					        modal: true,
+					        buttons: {
+					          "Save": function() {
+					        	  //logic save data to dataabase start
+					        	 
+					        	  editor_data = editor.getData();
+					        	  //alert(kpiID);
+					        	  //alert(editor_data);
+					        	  
+					        		  
+					        	  updateCommentDB2Fn(editor_data);
+					        	 
+					           // $( this ).dialog( "close" );
+					          },
+					          Cancel: function() {
+					            $( this ).dialog( "close" );
+					          }
+					        }
+					      });
+					    //dialog end
+					    
+						}else{
+							$("#CommentAreaDB2").html(data);	
+							//$(".ui-dialog-buttonpane").hide();
+							//dialog start
+						    $( "#dialog-comment-db2" ).dialog({
+						    	
+						        resizable: true,
+						        /*height:350,*/
+						        width:350,
+						        modal: true
+						       
+						      });
+						    //dialog end
+						}
+						
+						/*-----------------------------------*/	
+						
+				}
+			});
+			
+	 		/*get comment from db2 end */
+	}
+ 		$("#addCommentDB2").click(function(){
+ 			
+ 			modalAddCOmmentDB2Fn();
+ 			
+ 			
+ 		});
+ 		
+ 		
+ 		/*####################script for EIS Start####################*/
+	
+	
+	
 	//paramYearFiscalFn(yearTHCurrent,monthFiscalFn(monthTHCurrent));
 	
 	paramYearFn(yearTHCurrent,monthTHCurrent);
